@@ -8,6 +8,8 @@
 
 #import "MyChainInboxTableViewController.h"
 #import <Parse/Parse.h>
+#import "PhotoPreviewController.h"
+#import "PhrasePreviewController.h"
 
 @interface MyChainInboxTableViewController ()
 @property (nonatomic) NSArray *myChainInbox;
@@ -23,11 +25,13 @@
     [query whereKey:@"toPFUser" equalTo:[PFUser currentUser]];
     [query whereKey:@"responded" equalTo:@NO];
     [query includeKey:@"fromPFUser"];
+    [query includeKey:@"Photo"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error){
             self.myChainInbox = objects;
             [self.tableView reloadData];
+
         }else {
             NSLog(@"Something went wrong %@:",[error description]);
         }
@@ -42,6 +46,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,14 +65,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyInBoxCell" forIndexPath:indexPath];
+    cell.tag = indexPath.row;
+    
+    NSLog(@"Getting cell for row: %d tagged: %d",indexPath.row,cell.tag);
     PFObject *chainForRow = [self.myChainInbox objectAtIndex:indexPath.row];
     
     PFUser *fromUserForChain = [chainForRow objectForKey:@"fromPFUser"];
     cell.textLabel.text = [NSString stringWithFormat:@"Chain from: %@",[fromUserForChain objectForKey:@"displayName"]];
+    cell.detailTextLabel.text = chainForRow.objectId;
+   
     return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Row Selected: %d",indexPath.row);
+    
+    PFObject *selectedChain = [self.myChainInbox objectAtIndex:indexPath.row];
+  
+    if ([selectedChain objectForKey:@"Photo"]){
+        [self performSegueWithIdentifier:@"photoPreviewSegue" sender:nil];
+        
+    }else if ([selectedChain objectForKey:@"phraseText"]){
+        
+        [self performSegueWithIdentifier:@"phrasePreviewSegue" sender:nil];
+    }else{
+        NSLog(@"Can't determine chain type!");
+    }
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,14 +127,31 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+    if ([segue.identifier isEqualToString:@"photoPreviewSegue"]) {
+        
+        PhotoPreviewController *photoPreview = segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        
+        PFObject *selectedObject = [self.myChainInbox objectAtIndex:indexPath.row];
+        
+        photoPreview.selectedObject = selectedObject;
+        
+    }else if ([segue.identifier isEqualToString:@"phrasePreviewSegue"]) {
+        
+        PhrasePreviewController *phrasePreview = segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        
+        PFObject *selectedObject = [self.myChainInbox objectAtIndex:indexPath.row];
+        
+        phrasePreview.selectedObject = selectedObject;
+    }
 }
-*/
+
 
 @end

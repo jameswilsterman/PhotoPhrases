@@ -24,6 +24,8 @@
 		372184081A860FF8003DBFD4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372183FB1A860FF8003DBFD4 /* StoreKit.framework */; };
 		372184091A860FF8003DBFD4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372183FC1A860FF8003DBFD4 /* SystemConfiguration.framework */; };
 		3721840D1A86916E003DBFD4 /* MyChainInboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3721840C1A86916E003DBFD4 /* MyChainInboxTableViewController.m */; };
+		372184101A869996003DBFD4 /* PhrasePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3721840F1A869996003DBFD4 /* PhrasePreviewController.m */; };
+		372184131A8699AC003DBFD4 /* PhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372184121A8699AC003DBFD4 /* PhotoPreviewController.m */; };
 		37A677491A86018700893DFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A677481A86018700893DFF /* main.m */; };
 		37A6774C1A86018700893DFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A6774B1A86018700893DFF /* AppDelegate.m */; };
 		37A6774F1A86018700893DFF /* PhotoPhrases.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */; };
@@ -65,6 +67,10 @@
 		372183FC1A860FF8003DBFD4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3721840B1A86916E003DBFD4 /* MyChainInboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChainInboxTableViewController.h; sourceTree = "<group>"; };
 		3721840C1A86916E003DBFD4 /* MyChainInboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyChainInboxTableViewController.m; sourceTree = "<group>"; };
+		3721840E1A869996003DBFD4 /* PhrasePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhrasePreviewController.h; sourceTree = "<group>"; };
+		3721840F1A869996003DBFD4 /* PhrasePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhrasePreviewController.m; sourceTree = "<group>"; };
+		372184111A8699AC003DBFD4 /* PhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPreviewController.h; sourceTree = "<group>"; };
+		372184121A8699AC003DBFD4 /* PhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreviewController.m; sourceTree = "<group>"; };
 		37A677431A86018700893DFF /* PhotoPhrases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPhrases.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A677471A86018700893DFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37A677481A86018700893DFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -174,6 +180,10 @@
 				37A677511A86018700893DFF /* ViewController.m */,
 				37A6776F1A86027400893DFF /* WritePhraseViewController.h */,
 				37A677701A86027400893DFF /* WritePhraseViewController.m */,
+				3721840E1A869996003DBFD4 /* PhrasePreviewController.h */,
+				3721840F1A869996003DBFD4 /* PhrasePreviewController.m */,
+				372184111A8699AC003DBFD4 /* PhotoPreviewController.h */,
+				372184121A8699AC003DBFD4 /* PhotoPreviewController.m */,
 				37A677561A86018700893DFF /* Images.xcassets */,
 				37A677581A86018700893DFF /* LaunchScreen.xib */,
 				37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */,
@@ -312,7 +322,9 @@
 				37A6774F1A86018700893DFF /* PhotoPhrases.xcdatamodeld in Sources */,
 				37A677711A86027400893DFF /* WritePhraseViewController.m in Sources */,
 				3721840D1A86916E003DBFD4 /* MyChainInboxTableViewController.m in Sources */,
+				372184131A8699AC003DBFD4 /* PhotoPreviewController.m in Sources */,
 				37A6774C1A86018700893DFF /* AppDelegate.m in Sources */,
+				372184101A869996003DBFD4 /* PhrasePreviewController.m in Sources */,
 				37A677521A86018700893DFF /* ViewController.m in Sources */,
 				37A677491A86018700893DFF /* main.m in Sources */,
 			);

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface WritePhraseViewController : UIViewController
-
+@interface WritePhraseViewController : UIViewController <UITextFieldDelegate>
+@property (nonatomic, strong) PFObject *selectedObject;
 @end

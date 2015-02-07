@@ -10,8 +10,7 @@
 #import <Parse/Parse.h>
 
 @interface WritePhraseViewController ()
-
-@property (nonatomic) NSString *phraseText;
+@property (weak, nonatomic) IBOutlet UITextField *phraseTextField;
 
 @end
 
@@ -26,40 +25,57 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)didEndOnExit:(UITextField *)sender {
-    NSLog(@"valueChanged");
-    self.phraseText = sender.text;
-    [self pressSend];
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.phraseTextField.text.length > 0){
+        [self.phraseTextField resignFirstResponder];
+        [self pressSend:nil];
+        return YES;
+    }
+    
+    return NO;
 }
 
 
-- (IBAction)valueChanged:(UITextField *)sender {
-    NSLog(@"valueChanged");
-    self.phraseText = sender.text;
-}
 
 #warning should show login screen if no user here
-- (IBAction)pressSend {
+- (IBAction)pressSend:(id)sender{
     
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-        // do stuff with the user
+    if (self.phraseTextField.text.length > 0){// Only do something if we have some text to send
+        [self.phraseTextField resignFirstResponder];
+   
+        PFUser *currentUser = [PFUser currentUser];
+        if (currentUser) {
         
-        PFObject *chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
-        chainActivity[@"phraseText"] = self.phraseText;
-        chainActivity[@"fromPFUser"] = currentUser;
-        chainActivity[@"linkIndex"] = @0;
-        chainActivity[@"responded"] = @NO;
-        [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The object has been saved.
-            } else {
-                // There was a problem, check error.description
+            // do stuff with the user
+            PFObject *chainActivity;
+            if (self.selectedObject){
+                chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
+                chainActivity[@"partOfChain"] = [self.selectedObject objectForKey:@"partOfChain"];
+                chainActivity[@"phraseText"] = self.phraseTextField.text;
+                chainActivity[@"fromPFUser"] = currentUser;
+                chainActivity[@"linkIndex"] =  [NSNumber numberWithInteger:[[self.selectedObject objectForKey:@"linkIndex"] integerValue] + 1];
+                chainActivity[@"responded"] = @NO;
+            
+            }else {
+                chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
+                chainActivity[@"phraseText"] =  self.phraseTextField.text;
+                chainActivity[@"fromPFUser"] = currentUser;
+                chainActivity[@"linkIndex"] = @0;
+                chainActivity[@"responded"] = @NO;
             }
-        }];
+            [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    // The object has been saved.
+                } else {
+                    // There was a problem, check error.description
+                }
+            }];
         
-    } else {
-        // show the signup or login screen?
+        } else {
+            // show the signup or login screen?
+        }
     }
 }
 

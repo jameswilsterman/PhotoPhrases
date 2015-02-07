@@ -145,25 +145,54 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yl-Gr-0fO">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XS6-28-NJV"/>
+                                </constraints>
+                                <state key="normal" title="Guess the Phrase">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="78" y="720" width="299" height="30"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XS6-28-NJV"/>
+                                    </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="XS6-28-NJV"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="f8p-UU-pYf" kind="show" id="kkP-hd-48H"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Yl-Gr-0fO" firstAttribute="leading" secondItem="fTO-GN-voL" secondAttribute="leadingMargin" constant="35" id="4CR-dn-g7z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Yl-Gr-0fO" secondAttribute="trailing" constant="34" id="Rxr-gN-kac"/>
+                            <constraint firstItem="IQ5-cv-8mp" firstAttribute="top" secondItem="9Yl-Gr-0fO" secondAttribute="bottom" constant="50" id="iJc-Rp-eYg"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="hm0-zy-z3n"/>
                                 <exclude reference="9Yl-Gr-0fO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4CR-dn-g7z"/>
+                                <exclude reference="Rxr-gN-kac"/>
+                                <exclude reference="iJc-Rp-eYg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="hm0-zy-z3n"/>
                                 <include reference="9Yl-Gr-0fO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4CR-dn-g7z"/>
+                                <include reference="Rxr-gN-kac"/>
+                                <include reference="iJc-Rp-eYg"/>
                             </mask>
                         </variation>
                     </view>
@@ -294,8 +323,7 @@
                                     <rect key="frame" x="51" y="119" width="384" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="didEndOnExit:" destination="f8p-UU-pYf" eventType="editingDidEndOnExit" id="DND-6T-pBp"/>
-                                    <action selector="valueChanged:" destination="f8p-UU-pYf" eventType="valueChanged" id="GN3-Vw-UOf"/>
+                                    <outlet property="delegate" destination="f8p-UU-pYf" id="kmB-9W-t6Q"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-p7-Uks">
@@ -303,6 +331,9 @@
                                 <state key="normal" title="Send">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressSend:" destination="f8p-UU-pYf" eventType="touchUpInside" id="65S-Ri-z1M"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,10 +345,16 @@
                             <constraint firstItem="UfW-p7-Uks" firstAttribute="leading" secondItem="oH6-G6-W6X" secondAttribute="leading" id="zyG-yp-hJh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="phraseTextField" destination="oH6-G6-W6X" id="ZJg-aN-nj5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkp-BF-Kue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="991.5" y="-81"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kkP-hd-48H"/>
+    </inferredMetricsTieBreakers>
 </document>

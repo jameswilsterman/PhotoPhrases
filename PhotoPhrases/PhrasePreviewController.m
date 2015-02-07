@@ -7,7 +7,6 @@
 //
 
 #import "PhrasePreviewController.h"
-#import "UIImage+ResizeAdditions.h"
 #import <Parse/Parse.h>
 
 @interface PhrasePreviewController ()

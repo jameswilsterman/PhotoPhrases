@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1by-ay-ZPG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1by-ay-ZPG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -142,9 +143,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hm0-zy-z3n">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="800"/>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yl-Gr-0fO">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -173,7 +171,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Yl-Gr-0fO" firstAttribute="leading" secondItem="fTO-GN-voL" secondAttribute="leadingMargin" constant="35" id="4CR-dn-g7z"/>
+                            <constraint firstAttribute="centerY" secondItem="hm0-zy-z3n" secondAttribute="centerY" constant="-64" id="87z-ff-XzH"/>
+                            <constraint firstAttribute="centerX" secondItem="hm0-zy-z3n" secondAttribute="centerX" id="JbF-KQ-HQs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Yl-Gr-0fO" secondAttribute="trailing" constant="34" id="Rxr-gN-kac"/>
+                            <constraint firstItem="hm0-zy-z3n" firstAttribute="top" secondItem="W2t-ur-rzG" secondAttribute="bottom" id="azK-Dv-HuY"/>
+                            <constraint firstItem="hm0-zy-z3n" firstAttribute="leading" secondItem="fTO-GN-voL" secondAttribute="leadingMargin" constant="-16" id="cBp-FZ-UhO"/>
                             <constraint firstItem="IQ5-cv-8mp" firstAttribute="top" secondItem="9Yl-Gr-0fO" secondAttribute="bottom" constant="50" id="iJc-Rp-eYg"/>
                         </constraints>
                         <variation key="default">
@@ -182,6 +184,10 @@
                                 <exclude reference="9Yl-Gr-0fO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="87z-ff-XzH"/>
+                                <exclude reference="JbF-KQ-HQs"/>
+                                <exclude reference="azK-Dv-HuY"/>
+                                <exclude reference="cBp-FZ-UhO"/>
                                 <exclude reference="4CR-dn-g7z"/>
                                 <exclude reference="Rxr-gN-kac"/>
                                 <exclude reference="iJc-Rp-eYg"/>
@@ -193,6 +199,10 @@
                                 <include reference="9Yl-Gr-0fO"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="87z-ff-XzH"/>
+                                <include reference="JbF-KQ-HQs"/>
+                                <include reference="azK-Dv-HuY"/>
+                                <include reference="cBp-FZ-UhO"/>
                                 <include reference="4CR-dn-g7z"/>
                                 <include reference="Rxr-gN-kac"/>
                                 <include reference="iJc-Rp-eYg"/>

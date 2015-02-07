@@ -32,6 +32,7 @@
 		37A6775A1A86018700893DFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A677581A86018700893DFF /* LaunchScreen.xib */; };
 		37A677661A86018700893DFF /* PhotoPhrasesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A677651A86018700893DFF /* PhotoPhrasesTests.m */; };
 		37A677711A86027400893DFF /* WritePhraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A677701A86027400893DFF /* WritePhraseViewController.m */; };
+		5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		37A677651A86018700893DFF /* PhotoPhrasesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPhrasesTests.m; sourceTree = "<group>"; };
 		37A6776F1A86027400893DFF /* WritePhraseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritePhraseViewController.h; sourceTree = "<group>"; };
 		37A677701A86027400893DFF /* WritePhraseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritePhraseViewController.m; sourceTree = "<group>"; };
+		5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				372183FF1A860FF8003DBFD4 /* CFNetwork.framework in Frameworks */,
 				372184001A860FF8003DBFD4 /* CoreGraphics.framework in Frameworks */,
 				372184011A860FF8003DBFD4 /* CoreLocation.framework in Frameworks */,
+				5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */,
 				372184021A860FF8003DBFD4 /* libsqlite3.dylib in Frameworks */,
 				372184031A860FF8003DBFD4 /* libz.dylib in Frameworks */,
 				372184041A860FF8003DBFD4 /* MobileCoreServices.framework in Frameworks */,
@@ -116,6 +119,7 @@
 		3721840A1A86100F003DBFD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */,
 				372183EA1A860C0E003DBFD4 /* FacebookSDK.framework */,
 				372183EC1A860F38003DBFD4 /* Parse.framework */,
 				372183EE1A860F44003DBFD4 /* Bolts.framework */,
@@ -158,18 +162,18 @@
 		37A677451A86018700893DFF /* PhotoPhrases */ = {
 			isa = PBXGroup;
 			children = (
-				3721840A1A86100F003DBFD4 /* Frameworks */,
+				37A677531A86018700893DFF /* Main.storyboard */,
 				37A6774A1A86018700893DFF /* AppDelegate.h */,
 				37A6774B1A86018700893DFF /* AppDelegate.m */,
 				37A677501A86018700893DFF /* ViewController.h */,
 				37A677511A86018700893DFF /* ViewController.m */,
-				37A677531A86018700893DFF /* Main.storyboard */,
+				37A6776F1A86027400893DFF /* WritePhraseViewController.h */,
+				37A677701A86027400893DFF /* WritePhraseViewController.m */,
 				37A677561A86018700893DFF /* Images.xcassets */,
 				37A677581A86018700893DFF /* LaunchScreen.xib */,
 				37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */,
+				3721840A1A86100F003DBFD4 /* Frameworks */,
 				37A677461A86018700893DFF /* Supporting Files */,
-				37A6776F1A86027400893DFF /* WritePhraseViewController.h */,
-				37A677701A86027400893DFF /* WritePhraseViewController.m */,
 			);
 			path = PhotoPhrases;
 			sourceTree = "<group>";
@@ -429,6 +433,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhotoPhrases",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PhotoPhrases/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -443,6 +448,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhotoPhrases",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PhotoPhrases/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

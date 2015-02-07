@@ -49,6 +49,7 @@
         chainActivity[@"phraseText"] = self.phraseText;
         chainActivity[@"fromPFUser"] = currentUser;
         chainActivity[@"linkIndex"] = @0;
+        chainActivity[@"responded"] = @NO;
         [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 // The object has been saved.

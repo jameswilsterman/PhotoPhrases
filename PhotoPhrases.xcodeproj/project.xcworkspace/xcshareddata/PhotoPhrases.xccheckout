@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>903BE084-182A-4A81-AF8A-94D002D5376B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhotoPhrases</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>49F077C0D572A0E01E59DE0FCEA6CA54FBF8699A</key>
+		<string>https://github.com/jameswilsterman/PhotoPhrases.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhotoPhrases.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>49F077C0D572A0E01E59DE0FCEA6CA54FBF8699A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jameswilsterman/PhotoPhrases.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>49F077C0D572A0E01E59DE0FCEA6CA54FBF8699A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49F077C0D572A0E01E59DE0FCEA6CA54FBF8699A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PhotoPhrases</string>
+		</dict>
+	</array>
+</dict>
+</plist>

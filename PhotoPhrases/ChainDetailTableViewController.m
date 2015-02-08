@@ -20,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.chainActivities = @[];
-    [self.tableView registerClass: [PhotoTableViewCell class] forCellReuseIdentifier:@"photoCell"];
+  /*  [self.tableView registerClass: [PhotoTableViewCell class] forCellReuseIdentifier:@"photoCell"];
+     [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:@"phraseCell"];
+   */
     PFQuery *query = [PFQuery queryWithClassName:@"ChainActivity"];
     [query whereKey:@"partOfChain" equalTo:self.selectedChain];
     [query includeKey:@"fromPFUser"];
@@ -59,6 +61,7 @@
 }
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PFObject *chainActivity = [self.chainActivities objectAtIndex:indexPath.row];
@@ -66,7 +69,7 @@
     if ([chainActivity objectForKey:@"Photo"]){
         
         PhotoTableViewCell *photoCell = [self.tableView dequeueReusableCellWithIdentifier:@"photoCell" forIndexPath:indexPath];
-        PFObject *photo = [chainActivity objectForKey:@"Photo"];
+       /* PFObject *photo = [chainActivity objectForKey:@"Photo"];
         
         PFFile *imageFile = [photo objectForKey:@"image"];
         
@@ -77,16 +80,18 @@
                 NSLog(@"Could not get image: %@",[error localizedDescription]);
             }
         }];
-        
+        */
         return photoCell;
         
     }else if ([chainActivity objectForKey:@"phraseText"]){
        
-        UITableViewCell *cell   = [self.tableView dequeueReusableCellWithIdentifier:@"chainCell" forIndexPath:indexPath];
+        UITableViewCell *cell   = [self.tableView dequeueReusableCellWithIdentifier:@"phraseCell" forIndexPath:indexPath];
         
         PFUser *fromUserForChain = [chainActivity objectForKey:@"fromPFUser"];
+        cell.textLabel.text = [chainActivity objectForKey:@"phraseText"];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Phrase by: %@",[fromUserForChain objectForKey:@"displayName"]];
         
+        return cell;
 
     }else{
         NSLog(@"Can't determine chain activity type!");

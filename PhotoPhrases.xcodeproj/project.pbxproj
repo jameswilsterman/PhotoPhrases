@@ -35,6 +35,9 @@
 		37A6775A1A86018700893DFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A677581A86018700893DFF /* LaunchScreen.xib */; };
 		37A677661A86018700893DFF /* PhotoPhrasesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A677651A86018700893DFF /* PhotoPhrasesTests.m */; };
 		37A677711A86027400893DFF /* WritePhraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A677701A86027400893DFF /* WritePhraseViewController.m */; };
+		37EBB7481A86DE31009D3B36 /* AllChainsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB7471A86DE31009D3B36 /* AllChainsTableViewController.m */; };
+		37EBB74B1A86E394009D3B36 /* ChainDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */; };
+		37EBB74E1A86E61D009D3B36 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */; };
 		5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +90,12 @@
 		37A677651A86018700893DFF /* PhotoPhrasesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPhrasesTests.m; sourceTree = "<group>"; };
 		37A6776F1A86027400893DFF /* WritePhraseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritePhraseViewController.h; sourceTree = "<group>"; };
 		37A677701A86027400893DFF /* WritePhraseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritePhraseViewController.m; sourceTree = "<group>"; };
+		37EBB7461A86DE31009D3B36 /* AllChainsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllChainsTableViewController.h; sourceTree = "<group>"; };
+		37EBB7471A86DE31009D3B36 /* AllChainsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllChainsTableViewController.m; sourceTree = "<group>"; };
+		37EBB7491A86E394009D3B36 /* ChainDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainDetailTableViewController.h; sourceTree = "<group>"; };
+		37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainDetailTableViewController.m; sourceTree = "<group>"; };
+		37EBB74C1A86E61D009D3B36 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
+		37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
 		5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +193,12 @@
 				3721840F1A869996003DBFD4 /* PhrasePreviewController.m */,
 				372184111A8699AC003DBFD4 /* PhotoPreviewController.h */,
 				372184121A8699AC003DBFD4 /* PhotoPreviewController.m */,
+				37EBB7461A86DE31009D3B36 /* AllChainsTableViewController.h */,
+				37EBB7471A86DE31009D3B36 /* AllChainsTableViewController.m */,
+				37EBB7491A86E394009D3B36 /* ChainDetailTableViewController.h */,
+				37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */,
+				37EBB74C1A86E61D009D3B36 /* PhotoTableViewCell.h */,
+				37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */,
 				37A677561A86018700893DFF /* Images.xcassets */,
 				37A677581A86018700893DFF /* LaunchScreen.xib */,
 				37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */,
@@ -322,10 +337,13 @@
 				37A6774F1A86018700893DFF /* PhotoPhrases.xcdatamodeld in Sources */,
 				37A677711A86027400893DFF /* WritePhraseViewController.m in Sources */,
 				3721840D1A86916E003DBFD4 /* MyChainInboxTableViewController.m in Sources */,
+				37EBB74E1A86E61D009D3B36 /* PhotoTableViewCell.m in Sources */,
 				372184131A8699AC003DBFD4 /* PhotoPreviewController.m in Sources */,
 				37A6774C1A86018700893DFF /* AppDelegate.m in Sources */,
 				372184101A869996003DBFD4 /* PhrasePreviewController.m in Sources */,
+				37EBB7481A86DE31009D3B36 /* AllChainsTableViewController.m in Sources */,
 				37A677521A86018700893DFF /* ViewController.m in Sources */,
+				37EBB74B1A86E394009D3B36 /* ChainDetailTableViewController.m in Sources */,
 				37A677491A86018700893DFF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

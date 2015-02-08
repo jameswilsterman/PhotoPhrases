@@ -413,9 +413,9 @@
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="52q-VK-Off"/>
-                                            <exclude reference="rGb-ug-c7m"/>
                                             <exclude reference="7iK-lk-rdC"/>
                                             <exclude reference="nVX-29-7tP"/>
+                                            <exclude reference="rGb-ug-c7m"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -424,9 +424,9 @@
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="52q-VK-Off"/>
-                                            <include reference="rGb-ug-c7m"/>
                                             <include reference="7iK-lk-rdC"/>
                                             <include reference="nVX-29-7tP"/>
+                                            <include reference="rGb-ug-c7m"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

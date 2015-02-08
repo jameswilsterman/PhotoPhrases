@@ -60,7 +60,16 @@
     return self.chainActivities.count;
 }
 
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFObject *chainActivity = [self.chainActivities objectAtIndex:indexPath.row];
+    
+    if ([chainActivity objectForKey:@"Photo"]){
+        return 250.00;
+    }
+    
+    return 45.0;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -69,7 +78,7 @@
     if ([chainActivity objectForKey:@"Photo"]){
         
         PhotoTableViewCell *photoCell = [self.tableView dequeueReusableCellWithIdentifier:@"photoCell" forIndexPath:indexPath];
-       /* PFObject *photo = [chainActivity objectForKey:@"Photo"];
+        PFObject *photo = [chainActivity objectForKey:@"Photo"];
         
         PFFile *imageFile = [photo objectForKey:@"image"];
         
@@ -80,7 +89,7 @@
                 NSLog(@"Could not get image: %@",[error localizedDescription]);
             }
         }];
-        */
+        
         return photoCell;
         
     }else if ([chainActivity objectForKey:@"phraseText"]){

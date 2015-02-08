@@ -51,13 +51,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.myChainInbox.count;
 }
@@ -67,7 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyInBoxCell" forIndexPath:indexPath];
     cell.tag = indexPath.row;
     
-    NSLog(@"Getting cell for row: %d tagged: %d",indexPath.row,cell.tag);
+    //NSLog(@"Getting cell for row: %d tagged: %d",indexPath.row,cell.tag);
     PFObject *chainForRow = [self.myChainInbox objectAtIndex:indexPath.row];
     
     PFUser *fromUserForChain = [chainForRow objectForKey:@"fromPFUser"];
@@ -83,7 +83,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Row Selected: %d",indexPath.row);
+    //NSLog(@"Row Selected: %d",indexPath.row);
     
     PFObject *selectedChain = [self.myChainInbox objectAtIndex:indexPath.row];
   

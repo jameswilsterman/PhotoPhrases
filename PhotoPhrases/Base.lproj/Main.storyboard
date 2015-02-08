@@ -665,34 +665,6 @@
                                     <outlet property="delegate" destination="f8p-UU-pYf" id="kmB-9W-t6Q"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7d-ta-0g8">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Yu7-VN-dPa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Or generate a random Fraze!">
-                                    <color key="titleColor" red="0.81018518520000005" green="0.80896995059999999" blue="0.75310719999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Yu7-VN-dPa"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                    <mask key="constraints">
-                                        <include reference="Yu7-VN-dPa"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="generatePhrase:" destination="f8p-UU-pYf" eventType="touchUpInside" id="elI-mU-1Ia"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uAd-4H-tbC">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="backgroundColor" red="1" green="0.69117247969999995" blue="0.77784015910000004" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-p7-Uks">
                                 <rect key="frame" x="18" y="168" width="36" height="30"/>
                                 <color key="backgroundColor" red="0.84313725490000002" green="0.96470588239999999" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -718,6 +690,60 @@
                                     <action selector="pressSend:" destination="f8p-UU-pYf" eventType="touchUpInside" id="65S-Ri-z1M"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7d-ta-0g8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Yu7-VN-dPa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="or generate a random Fraze">
+                                    <color key="titleColor" red="0.89510526999999995" green="0.97709172970000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Yu7-VN-dPa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <mask key="constraints">
+                                        <include reference="Yu7-VN-dPa"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="generatePhrase:" destination="f8p-UU-pYf" eventType="touchUpInside" id="elI-mU-1Ia"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uAd-4H-tbC">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="backgroundColor" red="1" green="0.69117247969999995" blue="0.77784015910000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="riA-9r-hI9">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="V69-vi-3Wm"/>
+                                    <constraint firstAttribute="height" constant="140" id="oOd-yq-ACm">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="170"/>
+                                    </constraint>
+                                </constraints>
+                                <string key="text">When you send off a new Fraze you are starting a chain with a random other person who has this app. Chains alternate between photos and frazes!</string>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="V69-vi-3Wm"/>
+                                        <exclude reference="oOd-yq-ACm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="V69-vi-3Wm"/>
+                                        <include reference="oOd-yq-ACm"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.53725490200000003" green="0.56470588239999997" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -734,23 +760,30 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                             </constraint>
                             <constraint firstItem="oH6-G6-W6X" firstAttribute="top" secondItem="w8p-fI-kxC" secondAttribute="bottom" constant="51" id="S9X-MQ-ADc"/>
+                            <constraint firstAttribute="centerX" secondItem="riA-9r-hI9" secondAttribute="centerX" id="UvY-9f-vIS"/>
                             <constraint firstAttribute="centerX" secondItem="uAd-4H-tbC" secondAttribute="centerX" constant="-8.5" id="XKQ-8E-yWd"/>
                             <constraint firstAttribute="centerX" secondItem="UfW-p7-Uks" secondAttribute="centerX" constant="62" id="k16-WH-VZx">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="oH6-G6-W6X" secondAttribute="trailing" constant="2" id="oaE-ot-gup"/>
+                            <constraint firstItem="riA-9r-hI9" firstAttribute="top" secondItem="y7d-ta-0g8" secondAttribute="bottom" constant="43" id="pbx-AL-POL">
+                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                            </constraint>
                             <constraint firstItem="UfW-p7-Uks" firstAttribute="leading" secondItem="oH6-G6-W6X" secondAttribute="leading" id="zyG-yp-hJh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="y7d-ta-0g8"/>
                                 <exclude reference="uAd-4H-tbC"/>
+                                <exclude reference="riA-9r-hI9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7pk-nt-avL"/>
                                 <exclude reference="k16-WH-VZx"/>
                                 <exclude reference="9DI-JO-0FY"/>
                                 <exclude reference="Eh4-dJ-foa"/>
+                                <exclude reference="UvY-9f-vIS"/>
+                                <exclude reference="pbx-AL-POL"/>
                                 <exclude reference="3Va-nE-v17"/>
                                 <exclude reference="XKQ-8E-yWd"/>
                             </mask>
@@ -759,6 +792,7 @@
                             <mask key="subviews">
                                 <include reference="y7d-ta-0g8"/>
                                 <include reference="uAd-4H-tbC"/>
+                                <include reference="riA-9r-hI9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7pk-nt-avL"/>
@@ -766,6 +800,8 @@
                                 <exclude reference="zyG-yp-hJh"/>
                                 <include reference="9DI-JO-0FY"/>
                                 <include reference="Eh4-dJ-foa"/>
+                                <include reference="UvY-9f-vIS"/>
+                                <include reference="pbx-AL-POL"/>
                                 <include reference="3Va-nE-v17"/>
                                 <include reference="XKQ-8E-yWd"/>
                             </mask>

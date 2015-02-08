@@ -54,9 +54,6 @@
     return NO;
 }
 
-
-
-#warning should show login screen if no user here
 - (IBAction)pressSend:(id)sender{
     
     if (self.phraseTextField.text.length > 0){// Only do something if we have some text to send

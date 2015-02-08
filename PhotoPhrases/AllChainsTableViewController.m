@@ -65,8 +65,13 @@
     PFObject *chainForRow = [self.allChains objectAtIndex:indexPath.row];
     
     PFUser *startedBy = [chainForRow objectForKey:@"startedBy"];
-    cell.textLabel.text = [NSString stringWithFormat:@"Chain started by: %@",[startedBy objectForKey:@"displayName"]];
-    cell.detailTextLabel.text = chainForRow.objectId;
+    cell.textLabel.text = [NSString stringWithFormat:@"Chain started by %@",[startedBy objectForKey:@"displayName"]];
+    
+    // cell.detailTextLabel.text = chainForRow.objectId;
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM-dd-yyyy"];
+    NSString *date = [df stringFromDate:chainForRow.createdAt];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"on %@", date];
     
     return cell;
     

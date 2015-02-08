@@ -71,8 +71,13 @@
     PFObject *chainForRow = [self.myChainInbox objectAtIndex:indexPath.row];
     
     PFUser *fromUserForChain = [chainForRow objectForKey:@"fromPFUser"];
-    cell.textLabel.text = [NSString stringWithFormat:@"Chain from: %@",[fromUserForChain objectForKey:@"displayName"]];
-    cell.detailTextLabel.text = chainForRow.objectId;
+    cell.textLabel.text = [NSString stringWithFormat:@"Chain from %@",[fromUserForChain objectForKey:@"displayName"]];
+    
+    // cell.detailTextLabel.text = chainForRow.objectId;
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM-dd-yyyy"];
+    NSString *date = [df stringFromDate:chainForRow.createdAt];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"on %@", date];
    
     return cell;
 }

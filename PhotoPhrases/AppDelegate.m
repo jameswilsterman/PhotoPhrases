@@ -28,6 +28,7 @@
                                                     UIUserNotificationTypeSound);
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
                                                                              categories:nil];
+    
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     

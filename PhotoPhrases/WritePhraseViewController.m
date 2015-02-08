@@ -11,6 +11,8 @@
 
 @interface WritePhraseViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phraseTextField;
+@property (weak, nonatomic) IBOutlet UIButton *sendPhraseButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -18,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activityIndicator setHidden:YES];
+    [self.sendPhraseButton setEnabled:YES];
     // Do any additional setup after loading the view.
 }
 
@@ -78,9 +82,14 @@
                 chainActivity[@"linkIndex"] = @0;
                 chainActivity[@"responded"] = @NO;
             }
+            [self.sendPhraseButton setEnabled:NO];
+            [self.activityIndicator setHidden:NO];
+            [self.activityIndicator startAnimating];
             [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-                    // The object has been saved.
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    [self.activityIndicator stopAnimating];
+                    [self.activityIndicator setHidden:YES];
                 } else {
                     // There was a problem, check error.description
                 }

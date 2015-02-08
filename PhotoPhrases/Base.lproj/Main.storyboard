@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1by-ay-ZPG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1by-ay-ZPG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -84,45 +84,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koT-Ti-Mnz">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="268"/>
-                                </variation>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd3-TL-S9x">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Photo This Phrase">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="56" y="385" width="271" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="respondToPhraseButtonPressed:" destination="iDJ-4h-Ml0" eventType="touchUpInside" id="7zT-hB-3hU"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-Ec-Kse">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="backgroundColor" red="1" green="0.69117247969999995" blue="0.77784015910000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="koT-Ti-Mnz">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Zyo-Vx-AMH"/>
+                                    <constraint firstAttribute="height" constant="250" id="tXu-JC-eJ0"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Zyo-Vx-AMH"/>
+                                        <exclude reference="tXu-JC-eJ0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Zyo-Vx-AMH"/>
+                                        <include reference="tXu-JC-eJ0"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="koT-Ti-Mnz" firstAttribute="top" secondItem="uID-ks-Dsu" secondAttribute="bottom" constant="20" id="0au-ZU-3oE"/>
+                            <constraint firstItem="koT-Ti-Mnz" firstAttribute="leading" secondItem="eWW-IQ-Itq" secondAttribute="leadingMargin" constant="-16" id="0xZ-c1-JYY"/>
+                            <constraint firstAttribute="centerX" secondItem="Pd3-TL-S9x" secondAttribute="centerX" constant="8.5" id="4d0-1s-hfk"/>
+                            <constraint firstAttribute="centerX" secondItem="koT-Ti-Mnz" secondAttribute="centerX" id="6do-Fb-8cz"/>
+                            <constraint firstItem="Pd3-TL-S9x" firstAttribute="top" secondItem="koT-Ti-Mnz" secondAttribute="bottom" constant="20" id="cSt-YU-iEw"/>
+                            <constraint firstItem="Zhg-Ec-Kse" firstAttribute="top" secondItem="uID-ks-Dsu" secondAttribute="bottom" constant="318" id="gcw-lo-79f"/>
+                            <constraint firstAttribute="centerX" secondItem="Zhg-Ec-Kse" secondAttribute="centerX" constant="0.5" id="mVq-3J-fdH"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="koT-Ti-Mnz"/>
                                 <exclude reference="Pd3-TL-S9x"/>
+                                <exclude reference="Zhg-Ec-Kse"/>
+                                <exclude reference="koT-Ti-Mnz"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0au-ZU-3oE"/>
+                                <exclude reference="0xZ-c1-JYY"/>
+                                <exclude reference="6do-Fb-8cz"/>
+                                <exclude reference="4d0-1s-hfk"/>
+                                <exclude reference="cSt-YU-iEw"/>
+                                <exclude reference="gcw-lo-79f"/>
+                                <exclude reference="mVq-3J-fdH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="koT-Ti-Mnz"/>
                                 <include reference="Pd3-TL-S9x"/>
+                                <include reference="Zhg-Ec-Kse"/>
+                                <include reference="koT-Ti-Mnz"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0au-ZU-3oE"/>
+                                <include reference="0xZ-c1-JYY"/>
+                                <include reference="6do-Fb-8cz"/>
+                                <include reference="4d0-1s-hfk"/>
+                                <include reference="cSt-YU-iEw"/>
+                                <include reference="gcw-lo-79f"/>
+                                <include reference="mVq-3J-fdH"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Zhg-Ec-Kse" id="JO4-tw-3Ia"/>
                         <outlet property="phraseTextView" destination="koT-Ti-Mnz" id="J6T-LH-onQ"/>
+                        <outlet property="takePhotoButton" destination="Pd3-TL-S9x" id="fgK-fG-Uw8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjc-Sp-dal" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -515,38 +560,52 @@
                                     <action selector="generatePhrase:" destination="f8p-UU-pYf" eventType="touchUpInside" id="elI-mU-1Ia"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uAd-4H-tbC">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="backgroundColor" red="1" green="0.69117247969999995" blue="0.77784015910000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uAd-4H-tbC" firstAttribute="top" secondItem="w8p-fI-kxC" secondAttribute="bottom" constant="194" id="3Va-nE-v17"/>
                             <constraint firstItem="UfW-p7-Uks" firstAttribute="leading" secondItem="y7d-ta-0g8" secondAttribute="leading" id="7pk-nt-avL"/>
                             <constraint firstItem="y7d-ta-0g8" firstAttribute="top" secondItem="UfW-p7-Uks" secondAttribute="bottom" constant="8" id="Eh4-dJ-foa"/>
                             <constraint firstItem="oH6-G6-W6X" firstAttribute="leading" secondItem="5SW-eQ-8Ze" secondAttribute="leadingMargin" constant="2" id="JsX-yl-30e"/>
                             <constraint firstItem="UfW-p7-Uks" firstAttribute="top" secondItem="oH6-G6-W6X" secondAttribute="bottom" constant="23" id="OVH-aA-bxw"/>
                             <constraint firstItem="oH6-G6-W6X" firstAttribute="top" secondItem="w8p-fI-kxC" secondAttribute="bottom" constant="51" id="S9X-MQ-ADc"/>
+                            <constraint firstAttribute="centerX" secondItem="uAd-4H-tbC" secondAttribute="centerX" constant="-8.5" id="XKQ-8E-yWd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oH6-G6-W6X" secondAttribute="trailing" constant="2" id="oaE-ot-gup"/>
                             <constraint firstItem="UfW-p7-Uks" firstAttribute="leading" secondItem="oH6-G6-W6X" secondAttribute="leading" id="zyG-yp-hJh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="y7d-ta-0g8"/>
+                                <exclude reference="uAd-4H-tbC"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Eh4-dJ-foa"/>
                                 <exclude reference="7pk-nt-avL"/>
+                                <exclude reference="Eh4-dJ-foa"/>
+                                <exclude reference="3Va-nE-v17"/>
+                                <exclude reference="XKQ-8E-yWd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="y7d-ta-0g8"/>
+                                <include reference="uAd-4H-tbC"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Eh4-dJ-foa"/>
                                 <include reference="7pk-nt-avL"/>
+                                <include reference="Eh4-dJ-foa"/>
+                                <include reference="3Va-nE-v17"/>
+                                <include reference="XKQ-8E-yWd"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="uAd-4H-tbC" id="3Wi-aa-enz"/>
                         <outlet property="phraseTextField" destination="oH6-G6-W6X" id="ZJg-aN-nj5"/>
+                        <outlet property="sendPhraseButton" destination="UfW-p7-Uks" id="wdo-dy-AkG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkp-BF-Kue" userLabel="First Responder" sceneMemberID="firstResponder"/>

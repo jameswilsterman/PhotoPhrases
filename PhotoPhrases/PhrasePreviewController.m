@@ -10,6 +10,9 @@
 #import <Parse/Parse.h>
 
 @interface PhrasePreviewController ()
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
     
 @end
 
@@ -17,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activityIndicator setHidden:YES];
+    [self.takePhotoButton setEnabled:YES];
     self.phraseTextView.text = [self.selectedObject objectForKey:@"phraseText"];
 }
 
@@ -74,9 +79,15 @@
             userPhoto[@"image"] = imageFile;
             userPhoto[@"user"] = [PFUser currentUser];
             chainActivity[@"Photo"] = userPhoto;
+            [self.takePhotoButton setEnabled:NO];
+            [self.activityIndicator setHidden:NO];
+            [self.activityIndicator startAnimating];
             [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     // The object has been saved.
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    [self.activityIndicator stopAnimating];
+                    [self.activityIndicator setHidden:YES];
                 } else {
                     // There was a problem, check error.description
                 }

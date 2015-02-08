@@ -26,6 +26,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)generatePhrase:(UIButton *)sender {
+    NSLog(@"generatePhrase");
+    [PFCloud callFunctionInBackground:@"randomPhrase"
+                       withParameters:@{}
+                                block:^(NSString *result, NSError *error) {
+                                    if (!error) {
+                                        // result is @"Hello world!"
+                                        
+                                        self.phraseTextField.text = result;
+                                    }
+                                }];
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if (self.phraseTextField.text.length > 0){

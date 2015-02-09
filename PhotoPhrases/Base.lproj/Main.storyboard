@@ -1228,6 +1228,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="uAd-4H-tbC" id="3Wi-aa-enz"/>
+                        <outlet property="generatePhraseButton" destination="y7d-ta-0g8" id="XRn-cg-azO"/>
                         <outlet property="instructions" destination="riA-9r-hI9" id="VQj-XC-3cn"/>
                         <outlet property="phraseTextField" destination="oH6-G6-W6X" id="ZJg-aN-nj5"/>
                         <outlet property="sendPhraseButton" destination="UfW-p7-Uks" id="wdo-dy-AkG"/>

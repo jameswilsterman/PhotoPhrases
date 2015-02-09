@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendPhraseButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITextView *instructions;
+@property (weak, nonatomic) IBOutlet UIButton *generatePhraseButton;
 
 @end
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     [self.activityIndicator setHidden:YES];
     [self.sendPhraseButton setEnabled:YES];
+    [self.generatePhraseButton setEnabled:YES];
     if (!self.showInstructions) {
         self.instructions.hidden = YES;
     }
@@ -36,6 +38,10 @@
 
 - (IBAction)generatePhrase:(UIButton *)sender {
     NSLog(@"generatePhrase");
+    [self.generatePhraseButton setEnabled:NO];
+    [self.sendPhraseButton setEnabled:NO];
+    [self.activityIndicator setHidden:NO];
+    [self.activityIndicator startAnimating];
     [PFCloud callFunctionInBackground:@"randomPhrase"
                        withParameters:@{}
                                 block:^(NSString *result, NSError *error) {
@@ -43,6 +49,10 @@
                                         // result is @"Hello world!"
                                         
                                         self.phraseTextField.text = result;
+                                        [self.activityIndicator stopAnimating];
+                                        [self.generatePhraseButton setEnabled:YES];
+                                        [self.sendPhraseButton setEnabled:YES];
+                                        [self.activityIndicator setHidden:YES];
                                     }
                                 }];
 }

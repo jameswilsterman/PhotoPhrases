@@ -8,6 +8,7 @@
 
 #import "PhrasePreviewController.h"
 #import <Parse/Parse.h>
+#import "staticMethods.h"
 
 @interface PhrasePreviewController ()
 
@@ -29,6 +30,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)showFlagOptions:(id)sender {
+    
+    UIAlertController *timeSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Flag as offensive" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.takePhotoButton setEnabled:NO];
+        [self.activityIndicator setHidden:NO];
+        [self.activityIndicator startAnimating];
+        [staticMethods flagChainActivity:self.selectedObject.objectId];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.activityIndicator stopAnimating];
+        [self.activityIndicator setHidden:YES];
+    }]];
+    
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Block user" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        PFUser *fromUserForChain = [self.selectedObject objectForKey:@"fromPFUser"];
+        NSString *objectId = fromUserForChain.objectId;
+        [self.takePhotoButton setEnabled:NO];
+        [self.activityIndicator setHidden:NO];
+        [self.activityIndicator startAnimating];
+        [staticMethods flagChainActivity:self.selectedObject.objectId];
+        [staticMethods blockUser:objectId];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.activityIndicator stopAnimating];
+        [self.activityIndicator setHidden:YES];
+    }]];
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }]];
+    [self presentViewController:timeSheet animated:YES completion:nil];
+}
+
 - (IBAction)respondToPhraseButtonPressed:(id)sender {
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

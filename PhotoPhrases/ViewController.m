@@ -21,16 +21,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         // do stuff with the user
         NSLog(@"We have a currentUser.");
+        // NSArray *blocked = [currentUser objectForKey:@"blocked"];
+        // NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        // [userDefaults setObject:blocked forKey:@"blocked"];
+        
     } else {
         // show the signup or login screen
         [self attemptFacebookLogIn];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(215.0f/255.0f) green:(246.0f/255.0f) blue:(254.0f/255.0f) alpha:1.0f];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:(255.0f/255.0f) green:(117.0f/255.0f) blue:(131.0f/255.0f) alpha:1.0f];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:(137.0f/255.0f) green:(144.0f/255.0f) blue:(175.0f/255.0f) alpha:1.0f]}];
 }
 
 - (void)attemptFacebookLogIn {

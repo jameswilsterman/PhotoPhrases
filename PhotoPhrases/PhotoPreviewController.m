@@ -9,6 +9,7 @@
 #import "PhotoPreviewController.h"
 #import <Parse/Parse.h>
 #import "WritePhraseViewController.h"
+#import "staticMethods.h"
 
 @interface PhotoPreviewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
@@ -34,6 +35,27 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showFlagOptions:(id)sender {
+    
+    UIAlertController *timeSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Flag as offensive" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [staticMethods flagChainActivity:self.selectedObject.objectId];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }]];
+    
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Block user" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        PFUser *fromUserForChain = [self.selectedObject objectForKey:@"fromPFUser"];
+        NSString *objectId = fromUserForChain.objectId;
+        [staticMethods flagChainActivity:self.selectedObject.objectId];
+        [staticMethods blockUser:objectId];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }]];
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }]];
+    [self presentViewController:timeSheet animated:YES completion:nil];
 }
 
 #pragma mark - Navigation

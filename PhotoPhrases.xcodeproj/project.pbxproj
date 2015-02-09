@@ -40,6 +40,7 @@
 		37EBB74E1A86E61D009D3B36 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */; };
 		37EBB7511A86F5A9009D3B36 /* F R A Z E.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */; };
 		37EBB7521A86F5A9009D3B36 /* F-R-A-Z-E_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */; };
+		5D4BE2EC1A88E730004B79F7 /* staticMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2EB1A88E730004B79F7 /* staticMethods.m */; };
 		5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,8 @@
 		37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
 		37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "F R A Z E.jpg"; sourceTree = "<group>"; };
 		37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-R-A-Z-E_clear.png"; sourceTree = "<group>"; };
+		5D4BE2EA1A88E730004B79F7 /* staticMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = staticMethods.h; sourceTree = "<group>"; };
+		5D4BE2EB1A88E730004B79F7 /* staticMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = staticMethods.m; sourceTree = "<group>"; };
 		5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,28 +187,30 @@
 		37A677451A86018700893DFF /* PhotoPhrases */ = {
 			isa = PBXGroup;
 			children = (
-				37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */,
-				37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */,
 				37A677531A86018700893DFF /* Main.storyboard */,
-				3721840B1A86916E003DBFD4 /* MyChainInboxTableViewController.h */,
-				3721840C1A86916E003DBFD4 /* MyChainInboxTableViewController.m */,
 				37A6774A1A86018700893DFF /* AppDelegate.h */,
 				37A6774B1A86018700893DFF /* AppDelegate.m */,
+				5D4BE2EA1A88E730004B79F7 /* staticMethods.h */,
+				5D4BE2EB1A88E730004B79F7 /* staticMethods.m */,
 				37A677501A86018700893DFF /* ViewController.h */,
 				37A677511A86018700893DFF /* ViewController.m */,
+				3721840B1A86916E003DBFD4 /* MyChainInboxTableViewController.h */,
+				3721840C1A86916E003DBFD4 /* MyChainInboxTableViewController.m */,
+				37EBB7461A86DE31009D3B36 /* AllChainsTableViewController.h */,
+				37EBB7471A86DE31009D3B36 /* AllChainsTableViewController.m */,
+				37EBB7491A86E394009D3B36 /* ChainDetailTableViewController.h */,
+				37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */,
 				37A6776F1A86027400893DFF /* WritePhraseViewController.h */,
 				37A677701A86027400893DFF /* WritePhraseViewController.m */,
 				3721840E1A869996003DBFD4 /* PhrasePreviewController.h */,
 				3721840F1A869996003DBFD4 /* PhrasePreviewController.m */,
 				372184111A8699AC003DBFD4 /* PhotoPreviewController.h */,
 				372184121A8699AC003DBFD4 /* PhotoPreviewController.m */,
-				37EBB7461A86DE31009D3B36 /* AllChainsTableViewController.h */,
-				37EBB7471A86DE31009D3B36 /* AllChainsTableViewController.m */,
-				37EBB7491A86E394009D3B36 /* ChainDetailTableViewController.h */,
-				37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */,
 				37EBB74C1A86E61D009D3B36 /* PhotoTableViewCell.h */,
 				37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */,
 				37A677561A86018700893DFF /* Images.xcassets */,
+				37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */,
+				37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */,
 				37A677581A86018700893DFF /* LaunchScreen.xib */,
 				37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */,
 				3721840A1A86100F003DBFD4 /* Frameworks */,
@@ -349,6 +354,7 @@
 				37EBB74E1A86E61D009D3B36 /* PhotoTableViewCell.m in Sources */,
 				372184131A8699AC003DBFD4 /* PhotoPreviewController.m in Sources */,
 				37A6774C1A86018700893DFF /* AppDelegate.m in Sources */,
+				5D4BE2EC1A88E730004B79F7 /* staticMethods.m in Sources */,
 				372184101A869996003DBFD4 /* PhrasePreviewController.m in Sources */,
 				37EBB7481A86DE31009D3B36 /* AllChainsTableViewController.m in Sources */,
 				37A677521A86018700893DFF /* ViewController.m in Sources */,

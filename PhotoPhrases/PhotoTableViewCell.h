@@ -10,4 +10,5 @@
 
 @interface PhotoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *photoCredit;
 @end

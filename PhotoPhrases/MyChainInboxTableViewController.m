@@ -34,6 +34,7 @@
 
         }else {
             NSLog(@"Something went wrong %@:",[error description]);
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
     
@@ -47,7 +48,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
 }
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -69,9 +73,23 @@
     
     //NSLog(@"Getting cell for row: %d tagged: %d",indexPath.row,cell.tag);
     PFObject *chainForRow = [self.myChainInbox objectAtIndex:indexPath.row];
+
+    NSString *chainType = @"Chain";
+    if ([chainForRow objectForKey:@"Photo"]) {
+        chainType = @"Photo";
+    } else if ([chainForRow objectForKey:@"phraseText"]){
+        chainType = @"Fraze";
+    } else{
+        NSLog(@"Can't determine chain type!");
+    }
     
     PFUser *fromUserForChain = [chainForRow objectForKey:@"fromPFUser"];
-    cell.textLabel.text = [NSString stringWithFormat:@"Chain from %@",[fromUserForChain objectForKey:@"displayName"]];
+    NSString *fromUserDisplayName = [fromUserForChain objectForKey:@"displayName"];
+    if (fromUserDisplayName == (id)[NSNull null] || fromUserDisplayName.length == 0 ) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ from Anonymous", chainType];
+    } else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ from %@", chainType, fromUserDisplayName];
+    }
     
     // cell.detailTextLabel.text = chainForRow.objectId;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -90,10 +108,10 @@
     if ([selectedChain objectForKey:@"Photo"]){
         [self performSegueWithIdentifier:@"photoPreviewSegue" sender:nil];
         
-    }else if ([selectedChain objectForKey:@"phraseText"]){
+    } else if ([selectedChain objectForKey:@"phraseText"]){
         
         [self performSegueWithIdentifier:@"phrasePreviewSegue" sender:nil];
-    }else{
+    } else{
         NSLog(@"Can't determine chain type!");
     }
     

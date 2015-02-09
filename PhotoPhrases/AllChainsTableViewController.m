@@ -18,9 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [[PFUser currentUser] fetch];
+    NSArray *blocked = [[PFUser currentUser] objectForKey:@"blocked"];
     
     PFQuery *allCompletedChainsQuery = [PFQuery queryWithClassName:@"Chain"];
     [allCompletedChainsQuery whereKey:@"final" equalTo:@YES];
+    [allCompletedChainsQuery whereKey:@"users" notContainedIn:blocked]; // for blocked users
     [allCompletedChainsQuery includeKey:@"startedBy"];
     [allCompletedChainsQuery orderByDescending:@"createdAt"];
     [allCompletedChainsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
@@ -29,14 +36,9 @@
             [self.tableView reloadData];
         }else {
             NSLog(@"Something went wrong %@:",[error description]);
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
-
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,8 +67,13 @@
     PFObject *chainForRow = [self.allChains objectAtIndex:indexPath.row];
     
     PFUser *startedBy = [chainForRow objectForKey:@"startedBy"];
-    cell.textLabel.text = [NSString stringWithFormat:@"Chain started by %@",[startedBy objectForKey:@"displayName"]];
-    
+    NSString *fromUserDisplayName = [startedBy objectForKey:@"displayName"];
+    if (fromUserDisplayName == (id)[NSNull null] || fromUserDisplayName.length == 0 ) {
+        cell.textLabel.text = @"Chain started by Anonymous";
+    } else {
+        cell.textLabel.text = [NSString stringWithFormat:@"Chain started by %@",fromUserDisplayName];
+    }
+   
     // cell.detailTextLabel.text = chainForRow.objectId;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM-dd-yyyy"];

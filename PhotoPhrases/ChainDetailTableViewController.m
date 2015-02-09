@@ -85,6 +85,14 @@
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
             if (!error){
                 photoCell.photoImageView.image = [UIImage imageWithData:data];
+                
+                PFUser *fromUser = [chainActivity objectForKey:@"fromPFUser"];
+                NSString *fromUserDisplayName = [fromUser objectForKey:@"displayName"];
+                if (fromUserDisplayName == (id)[NSNull null] || fromUserDisplayName.length == 0 ) {
+                    photoCell.photoCredit.text = @" Photo by Anonymous\t";
+                } else {
+                    photoCell.photoCredit.text = [NSString stringWithFormat:@" Photo by %@\t",fromUserDisplayName];
+                }
             }else {
                 NSLog(@"Could not get image: %@",[error localizedDescription]);
             }
@@ -98,7 +106,12 @@
         
         PFUser *fromUserForChain = [chainActivity objectForKey:@"fromPFUser"];
         cell.textLabel.text = [chainActivity objectForKey:@"phraseText"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Phrase by: %@",[fromUserForChain objectForKey:@"displayName"]];
+        NSString *fromUserDisplayName = [fromUserForChain objectForKey:@"displayName"];
+        if (fromUserDisplayName == (id)[NSNull null] || fromUserDisplayName.length == 0 ) {
+            cell.detailTextLabel.text = @"Phrase by Anonymous";
+        } else {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Phrase by %@",fromUserDisplayName];
+        }
         
         return cell;
 

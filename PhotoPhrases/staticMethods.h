@@ -14,4 +14,7 @@
 + (void)flagChainActivity:(NSString *)objectId;
 + (void)blockUser:(NSString *)objectId;
 
++ (void)flagChain:(NSString *)objectId;
++ (void)blockChainUsers:(NSString *)objectId;
+
 @end

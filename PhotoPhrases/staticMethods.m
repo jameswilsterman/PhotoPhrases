@@ -30,4 +30,26 @@
                                 }];
 }
 
++ (void)flagChain:(NSString *)objectId {
+    NSLog(@"flagChain...");
+    
+    [PFCloud callFunctionInBackground:@"flagChain"
+                       withParameters:@{@"objectId":objectId}
+                                block:^(id result, NSError *error) {
+                                    // ?
+                                }];
+    
+}
+
++ (void)blockChainUsers:(NSString *)objectId {
+    NSLog(@"blockChainUsers...");
+    
+    [PFCloud callFunctionInBackground:@"blockChainUsers"
+                       withParameters:@{@"objectId":objectId}
+                                block:^(id result, NSError *error) {
+                                    // ?
+                                }];
+    
+}
+
 @end

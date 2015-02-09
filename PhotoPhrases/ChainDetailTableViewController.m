@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "ChainDetailTableViewController.h"
 #import "PhotoTableViewCell.h"
+#import "staticMethods.h"
 
 
 @interface ChainDetailTableViewController ()
@@ -65,10 +66,10 @@
     PFObject *chainActivity = [self.chainActivities objectAtIndex:indexPath.row];
     
     if ([chainActivity objectForKey:@"Photo"]){
-        return 250.00;
+        return 250.0;
     }
     
-    return 45.0;
+    return 200.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,12 +106,12 @@
         UITableViewCell *cell   = [self.tableView dequeueReusableCellWithIdentifier:@"phraseCell" forIndexPath:indexPath];
         
         PFUser *fromUserForChain = [chainActivity objectForKey:@"fromPFUser"];
-        cell.textLabel.text = [chainActivity objectForKey:@"phraseText"];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@\n",[chainActivity objectForKey:@"phraseText"]];
         NSString *fromUserDisplayName = [fromUserForChain objectForKey:@"displayName"];
         if (fromUserDisplayName == (id)[NSNull null] || fromUserDisplayName.length == 0 ) {
-            cell.detailTextLabel.text = @"Phrase by Anonymous";
+            cell.detailTextLabel.text = @"FRAZE by Anonymous";
         } else {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"Phrase by %@",fromUserDisplayName];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"FRAZE by %@",fromUserDisplayName];
         }
         
         return cell;
@@ -120,6 +121,25 @@
     }
     
     return nil;
+}
+
+- (IBAction)showFlagOptions:(id)sender {
+    
+    UIAlertController *timeSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Flag as offensive" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [staticMethods flagChain:self.selectedChain.objectId];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }]];
+    
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Block all chain participants" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [staticMethods flagChain:self.selectedChain.objectId];
+        [staticMethods blockChainUsers:self.selectedChain.objectId];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }]];
+    [timeSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }]];
+    [self presentViewController:timeSheet animated:YES completion:nil];
 }
 
 

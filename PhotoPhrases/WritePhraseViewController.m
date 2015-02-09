@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *phraseTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sendPhraseButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UITextView *instructions;
 
 @end
 
@@ -22,6 +23,9 @@
     [super viewDidLoad];
     [self.activityIndicator setHidden:YES];
     [self.sendPhraseButton setEnabled:YES];
+    if (!self.showInstructions) {
+        self.instructions.hidden = YES;
+    }
     // Do any additional setup after loading the view.
 }
 

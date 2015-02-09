@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "WritePhraseViewController.h"
 
 @interface ViewController ()
 
@@ -31,7 +32,8 @@
         
     } else {
         // show the signup or login screen
-        [self attemptFacebookLogIn];
+        // [self attemptFacebookLogIn];
+        [self performSegueWithIdentifier:@"presentWelcome" sender:self];
     }
 }
 
@@ -42,25 +44,18 @@
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:(137.0f/255.0f) green:(144.0f/255.0f) blue:(175.0f/255.0f) alpha:1.0f]}];
 }
 
-- (void)attemptFacebookLogIn {
-    
-    NSArray *permissions = @[@"public_profile"];
-    
-    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
-        if (!user) {
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-        } else if (user.isNew) {
-            NSLog(@"User signed up and logged in through Facebook!");
-        } else {
-            NSLog(@"User logged in through Facebook!");
-        }
-    }];
-    
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"newChain"]) {
+        WritePhraseViewController *wpvc = segue.destinationViewController;
+        wpvc.showInstructions = YES;
+    }
+    
 }
 
 

@@ -66,6 +66,8 @@
     WritePhraseViewController *wpvc = segue.destinationViewController;
     wpvc.selectedObject = self.selectedObject;
     
+    wpvc.showInstructions = NO;
+    
 }
 
 

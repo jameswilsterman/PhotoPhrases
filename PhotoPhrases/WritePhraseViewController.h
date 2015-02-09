@@ -11,4 +11,5 @@
 
 @interface WritePhraseViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic, strong) PFObject *selectedObject;
+@property (nonatomic) BOOL showInstructions;
 @end

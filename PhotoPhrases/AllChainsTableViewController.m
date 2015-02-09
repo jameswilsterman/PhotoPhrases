@@ -23,10 +23,12 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [[PFUser currentUser] fetch];
+    PFUser *currentUser = [PFUser currentUser];
     NSArray *blocked = [[PFUser currentUser] objectForKey:@"blocked"];
     
     PFQuery *allCompletedChainsQuery = [PFQuery queryWithClassName:@"Chain"];
     [allCompletedChainsQuery whereKey:@"final" equalTo:@YES];
+    [allCompletedChainsQuery whereKey:@"flaggedBy" notEqualTo:currentUser.objectId];
     [allCompletedChainsQuery whereKey:@"users" notContainedIn:blocked]; // for blocked users
     [allCompletedChainsQuery includeKey:@"startedBy"];
     [allCompletedChainsQuery orderByDescending:@"createdAt"];

@@ -13,12 +13,24 @@
 
 @interface MyChainInboxTableViewController ()
 @property (nonatomic) NSArray *myChainInbox;
+@property (weak, nonatomic) IBOutlet UILabel *emptyLabel;
 @end
 
 @implementation MyChainInboxTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.emptyLabel.hidden = YES;
+    
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     self.myChainInbox = @[];
     
     PFQuery *query = [PFQuery queryWithClassName:@"ChainActivity"];
@@ -30,24 +42,22 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error){
             self.myChainInbox = objects;
+            
+            if (!self.myChainInbox || !self.myChainInbox.count) {
+                self.emptyLabel.hidden = NO;
+                //self.tableView.hidden = YES;
+            }
+            
             [self.tableView reloadData];
-
+            
         }else {
             NSLog(@"Something went wrong %@:",[error description]);
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }];
-    
-    
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     
 }
 

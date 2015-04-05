@@ -23,7 +23,7 @@
     [super viewDidLoad];
     [self.activityIndicator setHidden:YES];
     [self.takePhotoButton setEnabled:YES];
-    self.phraseTextView.text = [self.selectedObject objectForKey:@"phraseText"];
+    self.phraseLabel.text = [self.selectedObject objectForKey:@"phraseText"];
 }
 
 - (void)didReceiveMemoryWarning {

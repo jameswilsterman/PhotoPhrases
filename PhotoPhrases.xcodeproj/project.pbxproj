@@ -38,12 +38,15 @@
 		37EBB7481A86DE31009D3B36 /* AllChainsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB7471A86DE31009D3B36 /* AllChainsTableViewController.m */; };
 		37EBB74B1A86E394009D3B36 /* ChainDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */; };
 		37EBB74E1A86E61D009D3B36 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */; };
-		37EBB7511A86F5A9009D3B36 /* F R A Z E.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */; };
 		37EBB7521A86F5A9009D3B36 /* F-R-A-Z-E_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */; };
+		5D0DDA561A896FCB00C1183C /* PhraseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0DDA551A896FCB00C1183C /* PhraseTableViewCell.m */; };
+		5D1264BF1AD0F38E00E0913D /* telepath_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1264BE1AD0F38E00E0913D /* telepath_logo.png */; };
 		5D4BE2EC1A88E730004B79F7 /* staticMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2EB1A88E730004B79F7 /* staticMethods.m */; };
 		5D4BE2EF1A890590004B79F7 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2EE1A890590004B79F7 /* WelcomeViewController.m */; };
 		5D4BE2F21A890FF1004B79F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2F11A890FF1004B79F7 /* WebViewController.m */; };
 		5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */; };
+		5DD82E651A8DD293006318BF /* fraze_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82E641A8DD293006318BF /* fraze_logo.png */; };
+		5DE123101A8DC17100F4779F /* launch_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DE1230F1A8DC17100F4779F /* launch_image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +104,10 @@
 		37EBB74A1A86E394009D3B36 /* ChainDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainDetailTableViewController.m; sourceTree = "<group>"; };
 		37EBB74C1A86E61D009D3B36 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
 		37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
-		37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "F R A Z E.jpg"; sourceTree = "<group>"; };
 		37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F-R-A-Z-E_clear.png"; sourceTree = "<group>"; };
+		5D0DDA541A896FCB00C1183C /* PhraseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhraseTableViewCell.h; sourceTree = "<group>"; };
+		5D0DDA551A896FCB00C1183C /* PhraseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhraseTableViewCell.m; sourceTree = "<group>"; };
+		5D1264BE1AD0F38E00E0913D /* telepath_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telepath_logo.png; sourceTree = "<group>"; };
 		5D4BE2EA1A88E730004B79F7 /* staticMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = staticMethods.h; sourceTree = "<group>"; };
 		5D4BE2EB1A88E730004B79F7 /* staticMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = staticMethods.m; sourceTree = "<group>"; };
 		5D4BE2ED1A890590004B79F7 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
@@ -110,6 +115,8 @@
 		5D4BE2F01A890FF1004B79F7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		5D4BE2F11A890FF1004B79F7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		5DD82E641A8DD293006318BF /* fraze_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fraze_logo.png; sourceTree = "<group>"; };
+		5DE1230F1A8DC17100F4779F /* launch_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch_image.png; path = ../launch_image.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,9 +225,9 @@
 				372184121A8699AC003DBFD4 /* PhotoPreviewController.m */,
 				37EBB74C1A86E61D009D3B36 /* PhotoTableViewCell.h */,
 				37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */,
+				5D0DDA541A896FCB00C1183C /* PhraseTableViewCell.h */,
+				5D0DDA551A896FCB00C1183C /* PhraseTableViewCell.m */,
 				37A677561A86018700893DFF /* Images.xcassets */,
-				37EBB74F1A86F5A9009D3B36 /* F R A Z E.jpg */,
-				37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */,
 				37A677581A86018700893DFF /* LaunchScreen.xib */,
 				37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */,
 				3721840A1A86100F003DBFD4 /* Frameworks */,
@@ -232,6 +239,10 @@
 		37A677461A86018700893DFF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D1264BE1AD0F38E00E0913D /* telepath_logo.png */,
+				5DD82E641A8DD293006318BF /* fraze_logo.png */,
+				37EBB7501A86F5A9009D3B36 /* F-R-A-Z-E_clear.png */,
+				5DE1230F1A8DC17100F4779F /* launch_image.png */,
 				37A677471A86018700893DFF /* Info.plist */,
 				37A677481A86018700893DFF /* main.m */,
 			);
@@ -336,11 +347,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37EBB7511A86F5A9009D3B36 /* F R A Z E.jpg in Resources */,
 				37A677551A86018700893DFF /* Main.storyboard in Resources */,
 				37EBB7521A86F5A9009D3B36 /* F-R-A-Z-E_clear.png in Resources */,
 				37A6775A1A86018700893DFF /* LaunchScreen.xib in Resources */,
+				5DD82E651A8DD293006318BF /* fraze_logo.png in Resources */,
 				37A677571A86018700893DFF /* Images.xcassets in Resources */,
+				5DE123101A8DC17100F4779F /* launch_image.png in Resources */,
+				5D1264BF1AD0F38E00E0913D /* telepath_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +384,7 @@
 				37EBB7481A86DE31009D3B36 /* AllChainsTableViewController.m in Sources */,
 				37A677521A86018700893DFF /* ViewController.m in Sources */,
 				37EBB74B1A86E394009D3B36 /* ChainDetailTableViewController.m in Sources */,
+				5D0DDA561A896FCB00C1183C /* PhraseTableViewCell.m in Sources */,
 				37A677491A86018700893DFF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,8 +511,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: James Wilsterman";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Wilsterman";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhotoPhrases",
@@ -517,8 +531,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: James Wilsterman";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Wilsterman";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhotoPhrases",

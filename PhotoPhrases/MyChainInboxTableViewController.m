@@ -113,16 +113,20 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"Row Selected: %d",indexPath.row);
     
-    PFObject *selectedChain = [self.myChainInbox objectAtIndex:indexPath.row];
-  
-    if ([selectedChain objectForKey:@"Photo"]){
-        [self performSegueWithIdentifier:@"photoPreviewSegue" sender:nil];
+    if (self.myChainInbox && self.myChainInbox.count) {
+        PFObject *selectedChain = [self.myChainInbox objectAtIndex:indexPath.row];
         
-    } else if ([selectedChain objectForKey:@"phraseText"]){
-        
-        [self performSegueWithIdentifier:@"phrasePreviewSegue" sender:nil];
-    } else{
-        NSLog(@"Can't determine chain type!");
+        if ([selectedChain objectForKey:@"Photo"]){
+            [self performSegueWithIdentifier:@"photoPreviewSegue" sender:nil];
+            
+        } else if ([selectedChain objectForKey:@"phraseText"]){
+            
+            [self performSegueWithIdentifier:@"phrasePreviewSegue" sender:nil];
+        } else{
+            NSLog(@"Can't determine chain type!");
+        }
+    } else {
+         NSLog(@"Chain array is empty!");
     }
     
 }

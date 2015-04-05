@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "ChainDetailTableViewController.h"
 #import "PhotoTableViewCell.h"
+#import "PhraseTableViewCell.h"
 #import "staticMethods.h"
 
 
@@ -103,18 +104,18 @@
         
     }else if ([chainActivity objectForKey:@"phraseText"]){
        
-        UITableViewCell *cell   = [self.tableView dequeueReusableCellWithIdentifier:@"phraseCell" forIndexPath:indexPath];
+        PhraseTableViewCell *phraseCell   = [self.tableView dequeueReusableCellWithIdentifier:@"phraseCell" forIndexPath:indexPath];
         
         PFUser *fromUserForChain = [chainActivity objectForKey:@"fromPFUser"];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@\n",[chainActivity objectForKey:@"phraseText"]];
+        phraseCell.phraseTitle.text = [NSString stringWithFormat:@"%@\n",[chainActivity objectForKey:@"phraseText"]];
         NSString *fromUserDisplayName = [fromUserForChain objectForKey:@"displayName"];
         if (fromUserDisplayName == (id)[NSNull null] || fromUserDisplayName.length == 0 ) {
-            cell.detailTextLabel.text = @"FRAZE by Anonymous";
+            phraseCell.phraseCredit.text = @" FRAZE by Anonymous ";
         } else {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"FRAZE by %@",fromUserDisplayName];
+            phraseCell.phraseCredit.text = [NSString stringWithFormat:@" FRAZE by %@ ",fromUserDisplayName];
         }
         
-        return cell;
+        return phraseCell;
 
     }else{
         NSLog(@"Can't determine chain activity type!");

@@ -10,6 +10,7 @@
 #import "WebViewController.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @interface WelcomeViewController ()
 
@@ -43,20 +44,69 @@
 }
 
 - (void)attemptFacebookLogIn {
+    NSLog(@"attemptFacebookLogIn...");
     
     NSArray *permissions = @[@"public_profile"];
     
+    if (![PFUser currentUser]) {
+        NSLog(@"no user, signing in");
+        [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+            if (error) {
+                NSLog(@"Error logging in with Facebook %@", error);
+            } else if (user) {
+                NSLog(@"got user...");
+                [self setupFBUser];
+            }
+        }];
+    } else {
+        NSLog(@"current user, just linking");
+        if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+            [PFFacebookUtils linkUser:[PFUser currentUser] permissions:permissions block:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    NSLog(@"Error linking Facebook %@", error);
+                }
+                
+                if (succeeded) {
+                    [self setupFBUser];
+                }
+            }];
+        }
+    }
+    
+    /*
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
+            [self setupFBUser];
         } else {
             NSLog(@"User logged in through Facebook!");
             [self performSegueWithIdentifier:@"finishedSignUp" sender:self];
         }
     }];
+     */
     
+}
+
+- (void)setupFBUser {
+    NSLog(@"setupFBUser...");
+    
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *fbError) {
+        if (!fbError) {
+            // Store the current user's Facebook ID on the user
+            [[PFUser currentUser] setObject:[result objectForKey:@"id"]
+                                     forKey:@"facebookId"];
+            [[PFUser currentUser] setObject:[result objectForKey:@"name"]
+                                     forKey:@"displayName"];
+            [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"User logged in through Facebook!");
+                    [self performSegueWithIdentifier:@"finishedSignUp" sender:self];
+                }
+            }];
+        }
+    }];
 }
 
 - (IBAction)cancelAsking:(UIStoryboardSegue *)segue {

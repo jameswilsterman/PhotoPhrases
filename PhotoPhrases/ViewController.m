@@ -13,6 +13,7 @@
 #import "WritePhraseViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *addChainLabel;
 
 @end
 
@@ -21,18 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.addChainLabel.hidden = YES;
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         // do stuff with the user
         NSLog(@"We have a currentUser.");
-        // NSArray *blocked = [currentUser objectForKey:@"blocked"];
-        // NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        // [userDefaults setObject:blocked forKey:@"blocked"];
+        
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation setObject:currentUser forKey:@"user"];
+        [currentInstallation saveInBackground];
+        [self setAddChainLabel];
         
     } else {
         // show the signup or login screen
-        // [self attemptFacebookLogIn];
         [self performSegueWithIdentifier:@"presentWelcome" sender:self];
     }
 }
@@ -49,11 +52,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma METHODS
+
+- (void) setAddChainLabel {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ChainActivity"];
+    [query whereKey:@"toPFUser" equalTo:[PFUser currentUser]];
+    [query whereKey:@"responded" equalTo:@NO];
+    [query includeKey:@"fromPFUser"];
+    [query includeKey:@"Photo"];
+    [query orderByDescending:@"createdAt"];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error){
+        if (!error){
+            
+            if (count > 0) {
+                
+                self.addChainLabel.text = [NSString stringWithFormat:@"%d", count];
+                self.addChainLabel.hidden = NO;
+            }
+            
+        } else {
+            NSLog(@"Something went wrong %@:",[error description]);
+        }
+    }];
+}
+
+#pragma SEGUE
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"newChain"]) {
-        WritePhraseViewController *wpvc = segue.destinationViewController;
-        wpvc.showInstructions = YES;
+        UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
+        WritePhraseViewController *destViewController = (WritePhraseViewController* )[navController topViewController];
+        destViewController.navigationItem.title = @"new chain";
+        destViewController.showInstructions = YES;
     }
     
 }

@@ -10,6 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface PhrasePreviewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UITextView *phraseTextView;
+@property (weak, nonatomic) IBOutlet UILabel *phraseLabel;
 @property (nonatomic,strong) PFObject *selectedObject;
 @end

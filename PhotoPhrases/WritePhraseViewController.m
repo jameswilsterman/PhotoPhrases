@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 @interface WritePhraseViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *phraseTextField;
+@property (weak, nonatomic) IBOutlet UITextView *phraseTextView;
 @property (weak, nonatomic) IBOutlet UIButton *sendPhraseButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITextView *instructions;
@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [self.activityIndicator setHidden:YES];
     [self.sendPhraseButton setEnabled:YES];
     [self.generatePhraseButton setEnabled:YES];
@@ -48,7 +49,7 @@
                                     if (!error) {
                                         // result is @"Hello world!"
                                         
-                                        self.phraseTextField.text = result;
+                                        self.phraseTextView.text = result;
                                         [self.activityIndicator stopAnimating];
                                         [self.generatePhraseButton setEnabled:YES];
                                         [self.sendPhraseButton setEnabled:YES];
@@ -59,8 +60,8 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (self.phraseTextField.text.length > 0){
-        [self.phraseTextField resignFirstResponder];
+    if (self.phraseTextView.text.length > 0){
+        [self.phraseTextView resignFirstResponder];
         [self pressSend:nil];
         return YES;
     }
@@ -68,10 +69,14 @@
     return NO;
 }
 
+- (IBAction)pressCancel:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)pressSend:(id)sender{
     
-    if (self.phraseTextField.text.length > 0){// Only do something if we have some text to send
-        [self.phraseTextField resignFirstResponder];
+    if (self.phraseTextView.text.length > 0){// Only do something if we have some text to send
+        [self.phraseTextView resignFirstResponder];
    
         PFUser *currentUser = [PFUser currentUser];
         if (currentUser) {
@@ -81,14 +86,14 @@
             if (self.selectedObject){
                 chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
                 chainActivity[@"partOfChain"] = [self.selectedObject objectForKey:@"partOfChain"];
-                chainActivity[@"phraseText"] = self.phraseTextField.text;
+                chainActivity[@"phraseText"] = self.phraseTextView.text;
                 chainActivity[@"fromPFUser"] = currentUser;
                 chainActivity[@"linkIndex"] =  [NSNumber numberWithInteger:[[self.selectedObject objectForKey:@"linkIndex"] integerValue] + 1];
                 chainActivity[@"responded"] = @NO;
             
             }else {
                 chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
-                chainActivity[@"phraseText"] =  self.phraseTextField.text;
+                chainActivity[@"phraseText"] =  self.phraseTextView.text;
                 chainActivity[@"fromPFUser"] = currentUser;
                 chainActivity[@"linkIndex"] = @0;
                 chainActivity[@"responded"] = @NO;

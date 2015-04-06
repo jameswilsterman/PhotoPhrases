@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "UIColor+ColorExtensions.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,11 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    // Change App Appearance
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor backgroundPurpleColor],NSForegroundColorAttributeName, [UIFont fontWithName:@"AvenirNext-Bold" size:18.0], NSFontAttributeName, nil]];
     
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |

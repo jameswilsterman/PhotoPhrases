@@ -23,7 +23,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.addChainLabel.hidden = YES;
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         // do stuff with the user
@@ -38,13 +40,6 @@
         // show the signup or login screen
         [self performSegueWithIdentifier:@"presentWelcome" sender:self];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(215.0f/255.0f) green:(246.0f/255.0f) blue:(254.0f/255.0f) alpha:1.0f];
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:(255.0f/255.0f) green:(117.0f/255.0f) blue:(131.0f/255.0f) alpha:1.0f];
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:(137.0f/255.0f) green:(144.0f/255.0f) blue:(175.0f/255.0f) alpha:1.0f]}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,7 +79,7 @@
     if ([segue.identifier isEqualToString:@"newChain"]) {
         UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
         WritePhraseViewController *destViewController = (WritePhraseViewController* )[navController topViewController];
-        destViewController.navigationItem.title = @"new chain";
+        destViewController.navigationItem.title = @"New Chain";
         destViewController.showInstructions = YES;
     }
     

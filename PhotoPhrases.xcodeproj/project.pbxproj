@@ -45,6 +45,7 @@
 		5D4BE2EF1A890590004B79F7 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2EE1A890590004B79F7 /* WelcomeViewController.m */; };
 		5D4BE2F21A890FF1004B79F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2F11A890FF1004B79F7 /* WebViewController.m */; };
 		5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */; };
+		5DC8B8831AD3EF8400CEACBA /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8B8821AD3EF8400CEACBA /* FriendTableViewCell.m */; };
 		5DD0ED4B1AD228290032AD19 /* UIColor+ColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0ED4A1AD228290032AD19 /* UIColor+ColorExtensions.m */; };
 		5DD0ED4D1AD22F0D0032AD19 /* keyboard-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0ED4C1AD22F0D0032AD19 /* keyboard-25.png */; };
 		5DD0ED501AD262E30032AD19 /* UIImage+ResizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0ED4F1AD262E30032AD19 /* UIImage+ResizeAdditions.m */; };
@@ -121,6 +122,8 @@
 		5D4BE2F01A890FF1004B79F7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		5D4BE2F11A890FF1004B79F7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		5DC8B8811AD3EF8400CEACBA /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		5DC8B8821AD3EF8400CEACBA /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		5DD0ED491AD228290032AD19 /* UIColor+ColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorExtensions.h"; sourceTree = "<group>"; };
 		5DD0ED4A1AD228290032AD19 /* UIColor+ColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorExtensions.m"; sourceTree = "<group>"; };
 		5DD0ED4C1AD22F0D0032AD19 /* keyboard-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard-25.png"; sourceTree = "<group>"; };
@@ -218,26 +221,18 @@
 			isa = PBXGroup;
 			children = (
 				37A677531A86018700893DFF /* Main.storyboard */,
-				5DD0ED571AD26ED10032AD19 /* FriendTableViewController.h */,
-				5DD0ED581AD26ED10032AD19 /* FriendTableViewController.m */,
-				5D4BE2F01A890FF1004B79F7 /* WebViewController.h */,
-				5D4BE2F11A890FF1004B79F7 /* WebViewController.m */,
 				37A6774A1A86018700893DFF /* AppDelegate.h */,
 				37A6774B1A86018700893DFF /* AppDelegate.m */,
-				5DD0ED491AD228290032AD19 /* UIColor+ColorExtensions.h */,
-				5DD0ED4A1AD228290032AD19 /* UIColor+ColorExtensions.m */,
 				5D4BE2EA1A88E730004B79F7 /* staticMethods.h */,
 				5D4BE2EB1A88E730004B79F7 /* staticMethods.m */,
 				5D4BE2ED1A890590004B79F7 /* WelcomeViewController.h */,
 				5D4BE2EE1A890590004B79F7 /* WelcomeViewController.m */,
-				5DD0ED4E1AD262E30032AD19 /* UIImage+ResizeAdditions.h */,
-				5DD0ED4F1AD262E30032AD19 /* UIImage+ResizeAdditions.m */,
-				5DD0ED511AD264310032AD19 /* UIImage+RoundedCornerAdditions.h */,
-				5DD0ED521AD264310032AD19 /* UIImage+RoundedCornerAdditions.m */,
-				5DD0ED541AD264EB0032AD19 /* UIImage+AlphaAdditions.h */,
-				5DD0ED551AD264EB0032AD19 /* UIImage+AlphaAdditions.m */,
+				5D4BE2F01A890FF1004B79F7 /* WebViewController.h */,
+				5D4BE2F11A890FF1004B79F7 /* WebViewController.m */,
 				37A677501A86018700893DFF /* ViewController.h */,
 				37A677511A86018700893DFF /* ViewController.m */,
+				5DD0ED571AD26ED10032AD19 /* FriendTableViewController.h */,
+				5DD0ED581AD26ED10032AD19 /* FriendTableViewController.m */,
 				3721840B1A86916E003DBFD4 /* MyChainInboxTableViewController.h */,
 				3721840C1A86916E003DBFD4 /* MyChainInboxTableViewController.m */,
 				37EBB7461A86DE31009D3B36 /* AllChainsTableViewController.h */,
@@ -250,10 +245,20 @@
 				3721840F1A869996003DBFD4 /* PhrasePreviewController.m */,
 				372184111A8699AC003DBFD4 /* PhotoPreviewController.h */,
 				372184121A8699AC003DBFD4 /* PhotoPreviewController.m */,
+				5DC8B8811AD3EF8400CEACBA /* FriendTableViewCell.h */,
+				5DC8B8821AD3EF8400CEACBA /* FriendTableViewCell.m */,
 				37EBB74C1A86E61D009D3B36 /* PhotoTableViewCell.h */,
 				37EBB74D1A86E61D009D3B36 /* PhotoTableViewCell.m */,
 				5D0DDA541A896FCB00C1183C /* PhraseTableViewCell.h */,
 				5D0DDA551A896FCB00C1183C /* PhraseTableViewCell.m */,
+				5DD0ED491AD228290032AD19 /* UIColor+ColorExtensions.h */,
+				5DD0ED4A1AD228290032AD19 /* UIColor+ColorExtensions.m */,
+				5DD0ED4E1AD262E30032AD19 /* UIImage+ResizeAdditions.h */,
+				5DD0ED4F1AD262E30032AD19 /* UIImage+ResizeAdditions.m */,
+				5DD0ED511AD264310032AD19 /* UIImage+RoundedCornerAdditions.h */,
+				5DD0ED521AD264310032AD19 /* UIImage+RoundedCornerAdditions.m */,
+				5DD0ED541AD264EB0032AD19 /* UIImage+AlphaAdditions.h */,
+				5DD0ED551AD264EB0032AD19 /* UIImage+AlphaAdditions.m */,
 				37A677561A86018700893DFF /* Images.xcassets */,
 				37A677581A86018700893DFF /* LaunchScreen.xib */,
 				37A6774D1A86018700893DFF /* PhotoPhrases.xcdatamodeld */,
@@ -413,6 +418,7 @@
 				372184101A869996003DBFD4 /* PhrasePreviewController.m in Sources */,
 				37EBB7481A86DE31009D3B36 /* AllChainsTableViewController.m in Sources */,
 				5DD0ED4B1AD228290032AD19 /* UIColor+ColorExtensions.m in Sources */,
+				5DC8B8831AD3EF8400CEACBA /* FriendTableViewCell.m in Sources */,
 				5DD0ED531AD264310032AD19 /* UIImage+RoundedCornerAdditions.m in Sources */,
 				37A677521A86018700893DFF /* ViewController.m in Sources */,
 				37EBB74B1A86E394009D3B36 /* ChainDetailTableViewController.m in Sources */,

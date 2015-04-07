@@ -179,7 +179,7 @@
         
         photoPreview.selectedObject = selectedObject;
         
-    }else if ([segue.identifier isEqualToString:@"phrasePreviewSegue"]) {
+    } else if ([segue.identifier isEqualToString:@"phrasePreviewSegue"]) {
         
         PhrasePreviewController *phrasePreview = segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;

@@ -7,15 +7,18 @@
 //
 
 #import "FriendTableViewController.h"
+#import "FriendTableViewCell.h"
+#import <Parse/Parse.h>
 
 @interface FriendTableViewController ()
-
+@property (nonatomic) NSArray *myFriends;
 @end
 
 @implementation FriendTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad FriendTableViewController");
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -29,29 +32,87 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"viewDidAppear FriendTableViewController");
+    self.myFriends = @[];
+    
+    [[PFUser currentUser] fetch];
+    PFUser *currentUser = [PFUser currentUser];
+
+    if (currentUser) {
+        NSArray *facebookFriends = [currentUser objectForKey:@"facebookFriends"];
+        NSLog(@"facebookFriends.count: %lu", (unsigned long)facebookFriends.count);
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"facebookId" containedIn:facebookFriends];
+        [query orderByAscending:@"displayName"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+            if (!error){
+                self.myFriends = objects;
+                NSLog(@"self.myFriends.count: %lu", (unsigned long)self.myFriends.count);
+                [self.tableView reloadData];
+            } else {
+                NSLog(@"Something went wrong %@:",[error description]);
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        }];
+    } else {
+        // show the signup or login screen?
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.myFriends.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFriendCell" forIndexPath:indexPath];
+    cell.tag = indexPath.row;
     
-    // Configure the cell...
+    //NSLog(@"Getting cell for row: %d tagged: %d",indexPath.row,cell.tag);
+    PFUser *friendForRow = [self.myFriends objectAtIndex:indexPath.row];
+    
+    NSString *friendDisplayName = [friendForRow objectForKey:@"displayName"];
+    
+    if (friendDisplayName == (id)[NSNull null] || friendDisplayName.length == 0 ) {
+        cell.friendNameLabel.text = @"Anonymous";
+    } else {
+        cell.friendNameLabel.text = [NSString stringWithFormat:@"%@", friendDisplayName];
+    }
+    
+    PFFile *profilePictureSmall = [friendForRow objectForKey:@"profilePictureSmall"];
+    [profilePictureSmall getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+        if (!error){
+            NSLog(@"got profilePicture image data");
+            cell.profileImage.image = [UIImage imageWithData:data];
+        } else {
+            NSLog(@"Could not get image: %@",[error localizedDescription]);
+        }
+    }];
     
     return cell;
 }
-*/
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //NSLog(@"Row Selected: %d",indexPath.row);
+    
+    if (self.myFriends && self.myFriends.count) {
+        // PFUser *selectedUser = [self.myFriends objectAtIndex:indexPath.row];
+        
+        // [self performSegueWithIdentifier:@"photoPreviewSegue" sender:nil];
+            
+    } else {
+        NSLog(@"Friend array is empty!");
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.

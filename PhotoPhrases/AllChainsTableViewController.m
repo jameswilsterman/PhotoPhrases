@@ -36,7 +36,7 @@
         if (!error){
             self.allChains = objects;
             [self.tableView reloadData];
-        }else {
+        } else {
             NSLog(@"Something went wrong %@:",[error description]);
             [self.navigationController popToRootViewControllerAnimated:YES];
         }

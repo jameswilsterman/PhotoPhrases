@@ -736,6 +736,15 @@
                                 <exclude reference="A9O-NJ-FKN"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="LRx-sD-CDq"/>
+                                <exclude reference="OUL-iQ-alr"/>
+                                <exclude reference="IBw-wj-05F"/>
+                                <exclude reference="cMg-X6-32b"/>
+                                <exclude reference="dMR-B3-iym"/>
+                                <exclude reference="flF-bL-B4l"/>
+                                <exclude reference="kD7-gy-ytr"/>
+                                <exclude reference="nlr-vk-a0V"/>
+                                <exclude reference="pzP-bQ-Pbr"/>
                                 <exclude reference="qof-WO-dJH"/>
                                 <exclude reference="uMg-x1-Dll"/>
                                 <exclude reference="zsY-RE-YUa"/>
@@ -744,18 +753,9 @@
                                 <exclude reference="jHW-ea-YBA"/>
                                 <exclude reference="mUG-5b-KMg"/>
                                 <exclude reference="xFt-Az-udi"/>
-                                <exclude reference="IBw-wj-05F"/>
-                                <exclude reference="cMg-X6-32b"/>
-                                <exclude reference="dMR-B3-iym"/>
-                                <exclude reference="flF-bL-B4l"/>
-                                <exclude reference="kD7-gy-ytr"/>
-                                <exclude reference="nlr-vk-a0V"/>
-                                <exclude reference="pzP-bQ-Pbr"/>
                                 <exclude reference="P5F-KK-wlU"/>
                                 <exclude reference="a3F-8Z-dYq"/>
                                 <exclude reference="x95-qK-Q8h"/>
-                                <exclude reference="LRx-sD-CDq"/>
-                                <exclude reference="OUL-iQ-alr"/>
                                 <exclude reference="oth-gD-ETf"/>
                                 <exclude reference="p70-sw-Z1M"/>
                                 <exclude reference="w8b-xp-4gt"/>
@@ -768,6 +768,15 @@
                                 <include reference="A9O-NJ-FKN"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="LRx-sD-CDq"/>
+                                <include reference="OUL-iQ-alr"/>
+                                <exclude reference="IBw-wj-05F"/>
+                                <include reference="cMg-X6-32b"/>
+                                <include reference="dMR-B3-iym"/>
+                                <include reference="flF-bL-B4l"/>
+                                <include reference="kD7-gy-ytr"/>
+                                <exclude reference="nlr-vk-a0V"/>
+                                <exclude reference="pzP-bQ-Pbr"/>
                                 <include reference="qof-WO-dJH"/>
                                 <include reference="uMg-x1-Dll"/>
                                 <include reference="zsY-RE-YUa"/>
@@ -776,18 +785,9 @@
                                 <include reference="jHW-ea-YBA"/>
                                 <include reference="mUG-5b-KMg"/>
                                 <include reference="xFt-Az-udi"/>
-                                <exclude reference="IBw-wj-05F"/>
-                                <include reference="cMg-X6-32b"/>
-                                <include reference="dMR-B3-iym"/>
-                                <include reference="flF-bL-B4l"/>
-                                <include reference="kD7-gy-ytr"/>
-                                <exclude reference="nlr-vk-a0V"/>
-                                <exclude reference="pzP-bQ-Pbr"/>
                                 <include reference="P5F-KK-wlU"/>
                                 <include reference="a3F-8Z-dYq"/>
                                 <include reference="x95-qK-Q8h"/>
-                                <include reference="LRx-sD-CDq"/>
-                                <include reference="OUL-iQ-alr"/>
                                 <include reference="oth-gD-ETf"/>
                                 <include reference="p70-sw-Z1M"/>
                                 <include reference="w8b-xp-4gt"/>
@@ -1346,30 +1346,112 @@
             </objects>
             <point key="canvasLocation" x="-718.5" y="-364.5"/>
         </scene>
-        <!--Friend Table View Controller-->
-        <scene sceneID="HKk-HN-uEb">
+        <!--Select Friend-->
+        <scene sceneID="HHt-bO-5Rs">
             <objects>
-                <tableViewController id="IGc-m4-F2g" customClass="FriendTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G9n-4q-jDh">
+                <tableViewController id="7KL-kQ-ccv" customClass="FriendTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="fJ1-BP-LKX">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zuc-xD-lpI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriendCell" rowHeight="89" id="iUt-Lo-0oR" customClass="FriendTableViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zuc-xD-lpI" id="uj6-YW-VEW">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iUt-Lo-0oR" id="juJ-st-BKA">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-Hw-krJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="O2N-Hw-krJ" secondAttribute="height" multiplier="1:1" id="klb-EL-tWY"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="klb-EL-tWY"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="klb-EL-tWY"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James Wilsterman" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RB-57-86e">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.53725490200000003" green="0.56470588239999997" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.84313725490000002" green="0.96470588239999999" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="O2N-Hw-krJ" secondAttribute="bottom" constant="-8" id="5I6-gu-Rw3">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstItem="O2N-Hw-krJ" firstAttribute="top" secondItem="juJ-st-BKA" secondAttribute="topMargin" constant="-8" id="Cap-JQ-D0N">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstItem="7RB-57-86e" firstAttribute="leading" secondItem="O2N-Hw-krJ" secondAttribute="trailing" constant="35" id="T2s-14-4kI">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                        </constraint>
+                                        <constraint firstItem="O2N-Hw-krJ" firstAttribute="leading" secondItem="juJ-st-BKA" secondAttribute="leadingMargin" constant="-8" id="cLC-cX-Qab">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstAttribute="centerY" secondItem="7RB-57-86e" secondAttribute="centerY" constant="5" id="j2b-mC-S4z"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7RB-57-86e" secondAttribute="trailing" constant="-21" id="xe2-tj-mzi">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        </constraint>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="O2N-Hw-krJ"/>
+                                            <exclude reference="7RB-57-86e"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="5I6-gu-Rw3"/>
+                                            <exclude reference="Cap-JQ-D0N"/>
+                                            <exclude reference="cLC-cX-Qab"/>
+                                            <exclude reference="T2s-14-4kI"/>
+                                            <exclude reference="j2b-mC-S4z"/>
+                                            <exclude reference="xe2-tj-mzi"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="O2N-Hw-krJ"/>
+                                            <include reference="7RB-57-86e"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="5I6-gu-Rw3"/>
+                                            <include reference="Cap-JQ-D0N"/>
+                                            <include reference="cLC-cX-Qab"/>
+                                            <include reference="T2s-14-4kI"/>
+                                            <include reference="j2b-mC-S4z"/>
+                                            <include reference="xe2-tj-mzi"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="friendNameLabel" destination="7RB-57-86e" id="jbw-fe-203"/>
+                                    <outlet property="profileImage" destination="O2N-Hw-krJ" id="n28-we-Ije"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="IGc-m4-F2g" id="f9f-Bt-3Y8"/>
-                            <outlet property="delegate" destination="IGc-m4-F2g" id="GXI-Qx-WRW"/>
+                            <outlet property="dataSource" destination="7KL-kQ-ccv" id="kGc-Rf-Clk"/>
+                            <outlet property="delegate" destination="7KL-kQ-ccv" id="WLA-iJ-7Gx"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Select Friend" id="kxS-0y-awd">
+                        <barButtonItem key="leftBarButtonItem" title="X" id="UIv-w4-Bn1"/>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1dH-xg-Jy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJC-OK-bl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.5" y="-1063.5"/>
+            <point key="canvasLocation" x="1062" y="-1041"/>
         </scene>
         <!--Write Phrase View Controller-->
         <scene sceneID="Aoq-UM-OHg">
@@ -1624,9 +1706,6 @@ Chains are completed after 10 people make a turn!</string>
                                 <exclude reference="uAd-4H-tbC"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="FOQ-CB-y1T"/>
-                                <exclude reference="b7p-at-zIX"/>
-                                <exclude reference="scG-Eb-It9"/>
                                 <exclude reference="0eI-ZT-fRo"/>
                                 <exclude reference="4dP-YB-MEl"/>
                                 <exclude reference="YAQ-eh-poG"/>
@@ -1636,18 +1715,21 @@ Chains are completed after 10 people make a turn!</string>
                                 <exclude reference="Dxf-W6-ndd"/>
                                 <exclude reference="KnU-EP-m7H"/>
                                 <exclude reference="sWx-Re-gBz"/>
+                                <exclude reference="FOQ-CB-y1T"/>
+                                <exclude reference="b7p-at-zIX"/>
+                                <exclude reference="scG-Eb-It9"/>
+                                <exclude reference="AtL-Aa-72r"/>
+                                <exclude reference="NtN-uP-WNd"/>
+                                <exclude reference="eVy-8X-JQE"/>
                                 <exclude reference="E7M-Tb-IzX"/>
                                 <exclude reference="Jcu-di-2FM"/>
                                 <exclude reference="wOa-Jh-ZGx"/>
+                                <exclude reference="cC5-Ad-m2I"/>
                                 <exclude reference="CaT-Gd-oXT"/>
                                 <exclude reference="DAg-Rh-F5C"/>
                                 <exclude reference="Qnw-ji-BbC"/>
                                 <exclude reference="aKn-bK-ggs"/>
                                 <exclude reference="xjs-5I-Rq1"/>
-                                <exclude reference="AtL-Aa-72r"/>
-                                <exclude reference="NtN-uP-WNd"/>
-                                <exclude reference="eVy-8X-JQE"/>
-                                <exclude reference="cC5-Ad-m2I"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1659,9 +1741,6 @@ Chains are completed after 10 people make a turn!</string>
                                 <include reference="uAd-4H-tbC"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="FOQ-CB-y1T"/>
-                                <include reference="b7p-at-zIX"/>
-                                <include reference="scG-Eb-It9"/>
                                 <exclude reference="0eI-ZT-fRo"/>
                                 <exclude reference="4dP-YB-MEl"/>
                                 <include reference="YAQ-eh-poG"/>
@@ -1671,18 +1750,21 @@ Chains are completed after 10 people make a turn!</string>
                                 <include reference="Dxf-W6-ndd"/>
                                 <include reference="KnU-EP-m7H"/>
                                 <include reference="sWx-Re-gBz"/>
+                                <include reference="FOQ-CB-y1T"/>
+                                <include reference="b7p-at-zIX"/>
+                                <include reference="scG-Eb-It9"/>
+                                <include reference="AtL-Aa-72r"/>
+                                <include reference="NtN-uP-WNd"/>
+                                <include reference="eVy-8X-JQE"/>
                                 <exclude reference="E7M-Tb-IzX"/>
                                 <include reference="Jcu-di-2FM"/>
                                 <include reference="wOa-Jh-ZGx"/>
+                                <include reference="cC5-Ad-m2I"/>
                                 <include reference="CaT-Gd-oXT"/>
                                 <exclude reference="DAg-Rh-F5C"/>
                                 <include reference="Qnw-ji-BbC"/>
                                 <include reference="aKn-bK-ggs"/>
                                 <include reference="xjs-5I-Rq1"/>
-                                <include reference="AtL-Aa-72r"/>
-                                <include reference="NtN-uP-WNd"/>
-                                <include reference="eVy-8X-JQE"/>
-                                <include reference="cC5-Ad-m2I"/>
                             </mask>
                         </variation>
                     </view>
@@ -1716,12 +1798,30 @@ Chains are completed after 10 people make a turn!</string>
                         <outlet property="phraseTextView" destination="WgB-MQ-JTj" id="Fwm-Mq-EXa"/>
                         <outlet property="sendFriendButton" destination="UfW-p7-Uks" id="FRG-Ed-X32"/>
                         <outlet property="sendRandomButton" destination="WqE-CK-OWF" id="II6-qD-bOB"/>
-                        <segue destination="IGc-m4-F2g" kind="presentation" identifier="showFriends" id="EBT-yI-1O1"/>
+                        <segue destination="op1-ic-eQs" kind="presentation" identifier="showFriends" id="9bp-8q-ZtD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkp-BF-Kue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.5" y="-364.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hR9-IY-3Dg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="op1-ic-eQs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fy9-mw-kai">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7KL-kQ-ccv" kind="relationship" relationship="rootViewController" id="Gkt-GE-Awr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyx-wA-YQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.5" y="-1041"/>
         </scene>
     </scenes>
     <resources>
@@ -1729,6 +1829,6 @@ Chains are completed after 10 people make a turn!</string>
         <image name="telepath_logo.png" width="1846" height="762"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kkP-hd-48H"/>
+        <segue reference="pOb-nu-vea"/>
     </inferredMetricsTieBreakers>
 </document>

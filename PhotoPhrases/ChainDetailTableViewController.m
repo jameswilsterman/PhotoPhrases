@@ -102,9 +102,9 @@
         
         return photoCell;
         
-    }else if ([chainActivity objectForKey:@"phraseText"]){
+    } else if ([chainActivity objectForKey:@"phraseText"]){
        
-        PhraseTableViewCell *phraseCell   = [self.tableView dequeueReusableCellWithIdentifier:@"phraseCell" forIndexPath:indexPath];
+        PhraseTableViewCell *phraseCell = [self.tableView dequeueReusableCellWithIdentifier:@"phraseCell" forIndexPath:indexPath];
         
         PFUser *fromUserForChain = [chainActivity objectForKey:@"fromPFUser"];
         phraseCell.phraseTitle.text = [NSString stringWithFormat:@"%@\n",[chainActivity objectForKey:@"phraseText"]];
@@ -117,7 +117,7 @@
         
         return phraseCell;
 
-    }else{
+    } else {
         NSLog(@"Can't determine chain activity type!");
     }
     

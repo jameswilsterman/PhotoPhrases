@@ -1352,7 +1352,7 @@
                 <tableViewController id="7KL-kQ-ccv" customClass="FriendTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="fJ1-BP-LKX">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.53725490200000003" green="0.56470588239999997" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriendCell" rowHeight="89" id="iUt-Lo-0oR" customClass="FriendTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1385,6 +1385,28 @@
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
                                             </variation>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok-104.png" translatesAutoresizingMaskIntoConstraints="NO" id="DiC-R7-Ljt">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="GLL-YT-3LJ"/>
+                                                <constraint firstAttribute="width" constant="30" id="TrK-hb-6wx"/>
+                                                <constraint firstAttribute="width" secondItem="DiC-R7-Ljt" secondAttribute="height" multiplier="1:1" id="nij-z2-jSF"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="GLL-YT-3LJ"/>
+                                                    <exclude reference="TrK-hb-6wx"/>
+                                                    <exclude reference="nij-z2-jSF"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="GLL-YT-3LJ"/>
+                                                    <include reference="TrK-hb-6wx"/>
+                                                    <exclude reference="nij-z2-jSF"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.84313725490000002" green="0.96470588239999999" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -1394,13 +1416,19 @@
                                         <constraint firstItem="O2N-Hw-krJ" firstAttribute="top" secondItem="juJ-st-BKA" secondAttribute="topMargin" constant="-8" id="Cap-JQ-D0N">
                                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                         </constraint>
+                                        <constraint firstItem="DiC-R7-Ljt" firstAttribute="leading" secondItem="7RB-57-86e" secondAttribute="trailing" constant="-46" id="Jao-QQ-k1u"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DiC-R7-Ljt" secondAttribute="trailing" constant="16" id="Jy5-8e-9eT"/>
+                                        <constraint firstItem="DiC-R7-Ljt" firstAttribute="leading" secondItem="7RB-57-86e" secondAttribute="trailing" constant="-46" id="QQU-51-7Vq"/>
                                         <constraint firstItem="7RB-57-86e" firstAttribute="leading" secondItem="O2N-Hw-krJ" secondAttribute="trailing" constant="35" id="T2s-14-4kI">
                                             <variation key="heightClass=regular-widthClass=compact" constant="24"/>
                                         </constraint>
                                         <constraint firstItem="O2N-Hw-krJ" firstAttribute="leading" secondItem="juJ-st-BKA" secondAttribute="leadingMargin" constant="-8" id="cLC-cX-Qab">
                                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                         </constraint>
-                                        <constraint firstAttribute="centerY" secondItem="7RB-57-86e" secondAttribute="centerY" constant="5" id="j2b-mC-S4z"/>
+                                        <constraint firstAttribute="centerY" secondItem="DiC-R7-Ljt" secondAttribute="centerY" constant="-0.5" id="fuT-b7-ct3"/>
+                                        <constraint firstAttribute="centerY" secondItem="7RB-57-86e" secondAttribute="centerY" constant="5" id="j2b-mC-S4z">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        </constraint>
                                         <constraint firstAttribute="trailingMargin" secondItem="7RB-57-86e" secondAttribute="trailing" constant="-21" id="xe2-tj-mzi">
                                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                         </constraint>
@@ -1409,6 +1437,7 @@
                                         <mask key="subviews">
                                             <exclude reference="O2N-Hw-krJ"/>
                                             <exclude reference="7RB-57-86e"/>
+                                            <exclude reference="DiC-R7-Ljt"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="5I6-gu-Rw3"/>
@@ -1417,12 +1446,17 @@
                                             <exclude reference="T2s-14-4kI"/>
                                             <exclude reference="j2b-mC-S4z"/>
                                             <exclude reference="xe2-tj-mzi"/>
+                                            <exclude reference="Jao-QQ-k1u"/>
+                                            <exclude reference="Jy5-8e-9eT"/>
+                                            <exclude reference="QQU-51-7Vq"/>
+                                            <exclude reference="fuT-b7-ct3"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="O2N-Hw-krJ"/>
                                             <include reference="7RB-57-86e"/>
+                                            <include reference="DiC-R7-Ljt"/>
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="5I6-gu-Rw3"/>
@@ -1430,11 +1464,16 @@
                                             <include reference="cLC-cX-Qab"/>
                                             <include reference="T2s-14-4kI"/>
                                             <include reference="j2b-mC-S4z"/>
-                                            <include reference="xe2-tj-mzi"/>
+                                            <exclude reference="xe2-tj-mzi"/>
+                                            <include reference="Jao-QQ-k1u"/>
+                                            <include reference="Jy5-8e-9eT"/>
+                                            <exclude reference="QQU-51-7Vq"/>
+                                            <include reference="fuT-b7-ct3"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="checkmark" destination="DiC-R7-Ljt" id="FLP-hL-cIT"/>
                                     <outlet property="friendNameLabel" destination="7RB-57-86e" id="jbw-fe-203"/>
                                     <outlet property="profileImage" destination="O2N-Hw-krJ" id="n28-we-Ije"/>
                                 </connections>
@@ -1446,12 +1485,33 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Friend" id="kxS-0y-awd">
-                        <barButtonItem key="leftBarButtonItem" title="X" id="UIv-w4-Bn1"/>
+                        <barButtonItem key="leftBarButtonItem" id="jos-cj-xGI">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y4I-Ca-BMh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="20" maxY="30"/>
+                                <state key="normal" title="Button" image="cancel-100.png"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pressCancel:" destination="7KL-kQ-ccv" eventType="touchUpInside" id="Hdm-IN-639"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="1yi-1c-fR0">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
+                            <color key="tintColor" red="0.96862745100000003" green="0.25882352939999997" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="Y4I-Ca-BMh" id="VXO-r6-nvJ"/>
+                        <outlet property="sendButton" destination="1yi-1c-fR0" id="WBC-Gl-3eB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJC-OK-bl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="-1041"/>
+            <point key="canvasLocation" x="1294.5" y="-1029.75"/>
         </scene>
         <!--Write Phrase View Controller-->
         <scene sceneID="Aoq-UM-OHg">
@@ -1780,7 +1840,8 @@ Chains are completed after 10 people make a turn!</string>
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aka-63-FPN">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="keyboard-25.png">
+                                <inset key="contentEdgeInsets" minX="20" minY="5" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="keyboard-104.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1825,7 +1886,9 @@ Chains are completed after 10 people make a turn!</string>
         </scene>
     </scenes>
     <resources>
-        <image name="keyboard-25.png" width="30" height="30"/>
+        <image name="cancel-100.png" width="100" height="100"/>
+        <image name="keyboard-104.png" width="104" height="104"/>
+        <image name="ok-104.png" width="104" height="104"/>
         <image name="telepath_logo.png" width="1846" height="762"/>
     </resources>
     <inferredMetricsTieBreakers>

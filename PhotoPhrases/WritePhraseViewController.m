@@ -21,7 +21,6 @@
 @property (weak, nonatomic) NSString *placeholderText;
 @property (weak, nonatomic) NSString *lastChar;
 @property (weak, nonatomic) IBOutlet UIButton *dismissKeyboardButton;
-
 @end
 
 @implementation WritePhraseViewController
@@ -35,19 +34,20 @@
         self.instructions.hidden = YES;
     }
     
-    // Do any additional setup after loading the view.
+    /*
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(makeFirstResponder:) userInfo:nil repeats:NO];
+    */
     
     [self.phraseTextView setTintColor:[UIColor textGrayColor]];
     
     // initialize placeholder text
-    self.placeholderText = @"Describe what you want someone to draw.";
+    self.placeholderText = @"Tap here and describe what you want someone to draw.";
     self.isPlaceholder = YES;
     self.phraseTextView.text = self.placeholderText;
     self.phraseTextView.textColor = [UIColor logoBlueColorWithAlpha];
     [self.phraseTextView setSelectedRange:NSMakeRange(0, 0)];
     
-    UIImage *image = [[UIImage imageNamed:@"keyboard-25.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *image = [[UIImage imageNamed:@"keyboard-104.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.dismissKeyboardButton setImage:image forState:UIControlStateNormal];
     [self.dismissKeyboardButton setTintColor:[UIColor accentRedColor]];
     

@@ -16,5 +16,5 @@
 
 + (void)flagChain:(NSString *)objectId;
 + (void)blockChainUsers:(NSString *)objectId;
-
++ (UIImage *)filledImageFrom:(UIImage *)source withColor:(UIColor *)color;
 @end

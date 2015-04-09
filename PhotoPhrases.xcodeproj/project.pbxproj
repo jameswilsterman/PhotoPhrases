@@ -46,6 +46,10 @@
 		5D4BE2F21A890FF1004B79F7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BE2F11A890FF1004B79F7 /* WebViewController.m */; };
 		5D7E5F751A861F72001AF162 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */; };
 		5DC8B8831AD3EF8400CEACBA /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8B8821AD3EF8400CEACBA /* FriendTableViewCell.m */; };
+		5DC8B8851AD4EA9000CEACBA /* cancel-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC8B8841AD4EA9000CEACBA /* cancel-100.png */; };
+		5DC8B8871AD4EC8800CEACBA /* cancel-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC8B8861AD4EC8800CEACBA /* cancel-32.png */; };
+		5DC8B8891AD4EE8700CEACBA /* keyboard-104.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC8B8881AD4EE8700CEACBA /* keyboard-104.png */; };
+		5DC8B88B1AD69C5000CEACBA /* ok-104.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC8B88A1AD69C5000CEACBA /* ok-104.png */; };
 		5DD0ED4B1AD228290032AD19 /* UIColor+ColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0ED4A1AD228290032AD19 /* UIColor+ColorExtensions.m */; };
 		5DD0ED4D1AD22F0D0032AD19 /* keyboard-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0ED4C1AD22F0D0032AD19 /* keyboard-25.png */; };
 		5DD0ED501AD262E30032AD19 /* UIImage+ResizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0ED4F1AD262E30032AD19 /* UIImage+ResizeAdditions.m */; };
@@ -124,6 +128,10 @@
 		5D7E5F741A861F72001AF162 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		5DC8B8811AD3EF8400CEACBA /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		5DC8B8821AD3EF8400CEACBA /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		5DC8B8841AD4EA9000CEACBA /* cancel-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-100.png"; sourceTree = "<group>"; };
+		5DC8B8861AD4EC8800CEACBA /* cancel-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-32.png"; sourceTree = "<group>"; };
+		5DC8B8881AD4EE8700CEACBA /* keyboard-104.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard-104.png"; sourceTree = "<group>"; };
+		5DC8B88A1AD69C5000CEACBA /* ok-104.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ok-104.png"; sourceTree = "<group>"; };
 		5DD0ED491AD228290032AD19 /* UIColor+ColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorExtensions.h"; sourceTree = "<group>"; };
 		5DD0ED4A1AD228290032AD19 /* UIColor+ColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorExtensions.m"; sourceTree = "<group>"; };
 		5DD0ED4C1AD22F0D0032AD19 /* keyboard-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard-25.png"; sourceTree = "<group>"; };
@@ -271,6 +279,10 @@
 		37A677461A86018700893DFF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5DC8B88A1AD69C5000CEACBA /* ok-104.png */,
+				5DC8B8881AD4EE8700CEACBA /* keyboard-104.png */,
+				5DC8B8861AD4EC8800CEACBA /* cancel-32.png */,
+				5DC8B8841AD4EA9000CEACBA /* cancel-100.png */,
 				5DD0ED4C1AD22F0D0032AD19 /* keyboard-25.png */,
 				5D1264BE1AD0F38E00E0913D /* telepath_logo.png */,
 				5DD82E641A8DD293006318BF /* fraze_logo.png */,
@@ -380,12 +392,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC8B8891AD4EE8700CEACBA /* keyboard-104.png in Resources */,
+				5DC8B8871AD4EC8800CEACBA /* cancel-32.png in Resources */,
+				5DC8B8851AD4EA9000CEACBA /* cancel-100.png in Resources */,
 				37A677551A86018700893DFF /* Main.storyboard in Resources */,
 				37EBB7521A86F5A9009D3B36 /* F-R-A-Z-E_clear.png in Resources */,
 				37A6775A1A86018700893DFF /* LaunchScreen.xib in Resources */,
 				5DD82E651A8DD293006318BF /* fraze_logo.png in Resources */,
 				37A677571A86018700893DFF /* Images.xcassets in Resources */,
 				5DE123101A8DC17100F4779F /* launch_image.png in Resources */,
+				5DC8B88B1AD69C5000CEACBA /* ok-104.png in Resources */,
 				5D1264BF1AD0F38E00E0913D /* telepath_logo.png in Resources */,
 				5DD0ED4D1AD22F0D0032AD19 /* keyboard-25.png in Resources */,
 			);

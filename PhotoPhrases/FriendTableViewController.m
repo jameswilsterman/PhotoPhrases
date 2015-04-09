@@ -8,10 +8,14 @@
 
 #import "FriendTableViewController.h"
 #import "FriendTableViewCell.h"
+#import "UIColor+ColorExtensions.h"
+#import "staticMethods.h"
 #import <Parse/Parse.h>
 
 @interface FriendTableViewController ()
 @property (nonatomic) NSArray *myFriends;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 @end
 
 @implementation FriendTableViewController
@@ -19,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"viewDidLoad FriendTableViewController");
+    
+    self.sendButton.enabled = NO;
+    
+    UIImage *image = [[UIImage imageNamed:@"cancel-100.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.cancelButton setImage:image forState:UIControlStateNormal];
+    [self.cancelButton setTintColor:[UIColor accentRedColor]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -30,6 +40,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -77,6 +90,13 @@
     FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyFriendCell" forIndexPath:indexPath];
     cell.tag = indexPath.row;
     
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    UIImage *check = [UIImage imageNamed:@"ok-104.png"];
+    UIImage *filledImage = [staticMethods filledImageFrom:check withColor:[UIColor accentRedColor]];
+    [cell.checkmark setImage:filledImage];
+    [cell.checkmark setHidden:YES];
+    
     //NSLog(@"Getting cell for row: %d tagged: %d",indexPath.row,cell.tag);
     PFUser *friendForRow = [self.myFriends objectAtIndex:indexPath.row];
     
@@ -101,8 +121,12 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"Row Selected: %d",indexPath.row);
+
+    FriendTableViewCell *selectedCell = (FriendTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [selectedCell.checkmark setHidden:NO];
+    self.sendButton.enabled = YES;
     
     if (self.myFriends && self.myFriends.count) {
         // PFUser *selectedUser = [self.myFriends objectAtIndex:indexPath.row];
@@ -112,6 +136,11 @@
     } else {
         NSLog(@"Friend array is empty!");
     }
+}
+
+
+- (IBAction)pressCancel:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

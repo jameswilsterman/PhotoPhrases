@@ -79,7 +79,7 @@
     if ([segue.identifier isEqualToString:@"newChain"]) {
         UINavigationController *navController = (UINavigationController*)[segue destinationViewController];
         WritePhraseViewController *destViewController = (WritePhraseViewController* )[navController topViewController];
-        destViewController.navigationItem.title = @"New Chain";
+        destViewController.navigationItem.title = @"NEW CHAIN";
         destViewController.showInstructions = YES;
     }
     

@@ -9,6 +9,7 @@
 #import "FriendTableViewController.h"
 #import "FriendTableViewCell.h"
 #import "UIColor+ColorExtensions.h"
+#import "WritePhraseViewController.h"
 #import "staticMethods.h"
 #import <Parse/Parse.h>
 
@@ -127,6 +128,7 @@
     FriendTableViewCell *selectedCell = (FriendTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     [selectedCell.checkmark setHidden:NO];
     self.sendButton.enabled = YES;
+    self.selectedUser = [self.myFriends objectAtIndex:indexPath.row];
     
     if (self.myFriends && self.myFriends.count) {
         // PFUser *selectedUser = [self.myFriends objectAtIndex:indexPath.row];
@@ -138,6 +140,13 @@
     }
 }
 
+- (IBAction)pressSend:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    self.somethingHappenedInModalVC(self.selectedUser);
+    // WritePhraseViewController *wpvc = (WritePhraseViewController *)self.presentingViewController.presentingViewController;
+    // wpvc.selectedUser = self.selectedUser;
+    // [wpvc addChainActivity];
+}
 
 - (IBAction)pressCancel:(id)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];

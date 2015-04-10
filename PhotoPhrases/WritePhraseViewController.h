@@ -6,10 +6,14 @@
 //  Copyright (c) 2015 Greg Cheong. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
 @interface WritePhraseViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic, strong) PFObject *selectedObject;
+@property (nonatomic, strong) PFUser *selectedUser;
 @property (nonatomic) BOOL showInstructions;
+
+- (void)addChainActivity;
 @end

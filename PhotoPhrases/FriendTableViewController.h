@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface FriendTableViewController : UITableViewController
-
+@property (nonatomic, strong) PFUser *selectedUser;
+@property (nonatomic, copy) void (^somethingHappenedInModalVC)(PFUser *response);
 @end

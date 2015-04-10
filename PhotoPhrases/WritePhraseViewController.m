@@ -8,6 +8,7 @@
 
 #import "WritePhraseViewController.h"
 #import "UIColor+ColorExtensions.h"
+#import "FriendTableViewController.h"
 #import <Parse/Parse.h>
 
 @interface WritePhraseViewController ()
@@ -173,66 +174,75 @@
     [self.phraseTextView resignFirstResponder];
 }
 
+- (void)addChainActivity {
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        PFObject *chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
+        chainActivity[@"fromPFUser"] = currentUser;
+        chainActivity[@"phraseText"] =  self.phraseTextView.text;
+        chainActivity[@"responded"] = @NO;
+        
+        if (self.selectedObject){
+            chainActivity[@"partOfChain"] = [self.selectedObject objectForKey:@"partOfChain"];
+            chainActivity[@"linkIndex"] =  [NSNumber numberWithInteger:[[self.selectedObject objectForKey:@"linkIndex"] integerValue] + 1];
+        } else {
+            chainActivity[@"linkIndex"] = @0;
+        }
+        
+        if (self.selectedUser) {
+            chainActivity[@"toPFUser"] = self.selectedUser;
+        }
+        
+        [self disableSendButtons];
+        [self.activityIndicator setHidden:NO];
+        [self.activityIndicator startAnimating];
+        [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self.activityIndicator stopAnimating];
+                [self.activityIndicator setHidden:YES];
+                self.selectedUser = nil;
+            } else {
+                // There was a problem, check error.description
+            }
+        }];
+    } else {
+        // show the signup or login screen?
+    }
+}
+
 - (IBAction)pressSend:(UIButton *)sender{
     
     if (self.phraseTextView.text.length > 0){// Only do something if we have some text to send
         [self.phraseTextView resignFirstResponder];
    
-        PFUser *currentUser = [PFUser currentUser];
-        if (currentUser) {
+        if ([sender isEqual:self.sendRandomButton]) {
+            NSLog(@"sendRandomButton pressed");
+            [self addChainActivity];
             
-            if ([sender isEqual:self.sendRandomButton]) {
-                NSLog(@"sendRandomButton pressed");
-        
-                // do stuff with the user
-                PFObject *chainActivity;
-                if (self.selectedObject){
-                    chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
-                    chainActivity[@"partOfChain"] = [self.selectedObject objectForKey:@"partOfChain"];
-                    chainActivity[@"phraseText"] = self.phraseTextView.text;
-                    chainActivity[@"fromPFUser"] = currentUser;
-                    chainActivity[@"linkIndex"] =  [NSNumber numberWithInteger:[[self.selectedObject objectForKey:@"linkIndex"] integerValue] + 1];
-                    chainActivity[@"responded"] = @NO;
-                
-                } else {
-                    chainActivity = [PFObject objectWithClassName:@"ChainActivity"];
-                    chainActivity[@"phraseText"] =  self.phraseTextView.text;
-                    chainActivity[@"fromPFUser"] = currentUser;
-                    chainActivity[@"linkIndex"] = @0;
-                    chainActivity[@"responded"] = @NO;
-                }
-                
-                [self disableSendButtons];
-                [self.activityIndicator setHidden:NO];
-                [self.activityIndicator startAnimating];
-                [chainActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    if (succeeded) {
-                        [self.navigationController popToRootViewControllerAnimated:YES];
-                        [self.activityIndicator stopAnimating];
-                        [self.activityIndicator setHidden:YES];
-                    } else {
-                        // There was a problem, check error.description
-                    }
-                }];
-            } else if ([sender isEqual:self.sendFriendButton]) {
-                NSLog(@"sendFriendButton pressed");
-                [self performSegueWithIdentifier:@"showFriends" sender:self];
-            }
-        
-        } else {
-            // show the signup or login screen?
+        } else if ([sender isEqual:self.sendFriendButton]) {
+            NSLog(@"sendFriendButton pressed");
+            [self performSegueWithIdentifier:@"showFriends" sender:self];
         }
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UINavigationController *navigationController = segue.destinationViewController;
+    FriendTableViewController *modalVC = (FriendTableViewController * )navigationController.topViewController;
+    modalVC.somethingHappenedInModalVC = ^(PFUser *response) {
+        NSLog(@"Something was selected in the modalVC");
+        self.selectedUser = response;
+        [self addChainActivity];
+    };
 }
-*/
 
 @end
